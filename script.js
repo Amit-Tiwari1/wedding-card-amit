@@ -29,14 +29,19 @@ envelopeOpenCard.addEventListener('keydown', (e) => {
   }
 });
 
-// 2. Audio Controller
+// 2. Audio Controller & Visualizer
 const mantraAudio = document.getElementById('ganeshMantra');
 const mantraToggle = document.getElementById('mantraToggle');
 
 function updateMantraToggle(isPlaying) {
   mantraToggle.setAttribute('aria-pressed', String(isPlaying));
-  mantraToggle.textContent = isPlaying ? '॥' : '♫';
-  mantraToggle.title = isPlaying ? 'Pause Aarti' : 'Play Aarti';
+  if (isPlaying) {
+    mantraToggle.classList.add('playing');
+    mantraToggle.title = 'Pause Aarti';
+  } else {
+    mantraToggle.classList.remove('playing');
+    mantraToggle.title = 'Play Aarti';
+  }
 }
 
 mantraAudio.addEventListener('play', () => updateMantraToggle(true));
@@ -56,10 +61,38 @@ async function toggleMantra(forcePlay = false) {
 }
 mantraToggle.addEventListener('click', () => toggleMantra());
 
-// 3. Falling Rose Petals Canvas Physics
+// 3. Live Countdown Timer (Target: 02 Dec 2026, 16:00:00 IST)
+const weddingDate = new Date('2026-12-02T16:00:00+05:30').getTime();
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const diff = weddingDate - now;
+
+  if (diff <= 0) {
+    document.getElementById('days').textContent = '00';
+    document.getElementById('hours').textContent = '00';
+    document.getElementById('minutes').textContent = '00';
+    document.getElementById('seconds').textContent = '00';
+    return;
+  }
+
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+  document.getElementById('days').textContent = String(d).padStart(2, '0');
+  document.getElementById('hours').textContent = String(h).padStart(2, '0');
+  document.getElementById('minutes').textContent = String(m).padStart(2, '0');
+  document.getElementById('seconds').textContent = String(s).padStart(2, '0');
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// 4. Double Particle Engine (Rose Petals + Divine Gold Dust)
 const canvas = document.getElementById('petalsCanvas');
 const ctx = canvas.getContext('2d');
-let petals = [];
+let particles = [];
 
 function resizeCanvas() {
   canvas.width = window.innerWidth;
@@ -68,54 +101,118 @@ function resizeCanvas() {
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 
-class Petal {
-  constructor() {
+class Particle {
+  constructor(isGoldDust = false) {
+    this.isGoldDust = isGoldDust;
     this.reset(true);
   }
   reset(initial = false) {
     this.x = Math.random() * canvas.width;
     this.y = initial ? Math.random() * canvas.height : -20;
-    this.size = Math.random() * 7 + 5;
-    this.speedY = Math.random() * 1.3 + 0.8;
-    this.speedX = Math.random() * 1.2 - 0.6;
-    this.rotation = Math.random() * 360;
-    this.spin = Math.random() * 2 - 1;
-    this.opacity = Math.random() * 0.6 + 0.3;
+    
+    if (this.isGoldDust) {
+      this.size = Math.random() * 2.5 + 1;
+      this.speedY = Math.random() * 0.8 + 0.3;
+      this.speedX = Math.random() * 0.8 - 0.4;
+      this.opacity = Math.random() * 0.7 + 0.3;
+    } else {
+      this.size = Math.random() * 7 + 5;
+      this.speedY = Math.random() * 1.3 + 0.8;
+      this.speedX = Math.random() * 1.2 - 0.6;
+      this.rotation = Math.random() * 360;
+      this.spin = Math.random() * 2 - 1;
+      this.opacity = Math.random() * 0.6 + 0.3;
+    }
   }
   update() {
     this.y += this.speedY;
     this.x += this.speedX;
-    this.rotation += this.spin;
+    if (!this.isGoldDust) this.rotation += this.spin;
     if (this.y > canvas.height + 20) this.reset();
   }
   draw() {
     ctx.save();
-    ctx.translate(this.x, this.y);
-    ctx.rotate((this.rotation * Math.PI) / 180);
-    ctx.beginPath();
-    ctx.ellipse(0, 0, this.size, this.size * 0.6, 0, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(185, 42, 60, ${this.opacity})`;
-    ctx.fill();
+    if (this.isGoldDust) {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(245, 218, 140, ${this.opacity})`;
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = '#d9b46c';
+      ctx.fill();
+    } else {
+      ctx.translate(this.x, this.y);
+      ctx.rotate((this.rotation * Math.PI) / 180);
+      ctx.beginPath();
+      ctx.ellipse(0, 0, this.size, this.size * 0.6, 0, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(185, 42, 60, ${this.opacity})`;
+      ctx.fill();
+    }
     ctx.restore();
   }
 }
 
-const petalCount = window.innerWidth < 768 ? 18 : 32;
-for (let i = 0; i < petalCount; i++) {
-  petals.push(new Petal());
-}
+// Populate particles
+const countPetals = window.innerWidth < 768 ? 16 : 28;
+const countGold = window.innerWidth < 768 ? 20 : 35;
 
-function animatePetals() {
+for (let i = 0; i < countPetals; i++) particles.push(new Particle(false));
+for (let i = 0; i < countGold; i++) particles.push(new Particle(true));
+
+function animateParticles() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  for (let petal of petals) {
-    petal.update();
-    petal.draw();
+  for (let p of particles) {
+    p.update();
+    p.draw();
   }
-  requestAnimationFrame(animatePetals);
+  requestAnimationFrame(animateParticles);
 }
-animatePetals();
+animateParticles();
 
-// 4. Modal & Direct HD Card Downloads
+// Interactive Touch/Click Petal Burst Effect (Phool-Varsha)
+window.addEventListener('click', (e) => {
+  // Ignore clicks on buttons/links
+  if (e.target.closest('button') || e.target.closest('a')) return;
+  for (let i = 0; i < 7; i++) {
+    const burst = new Particle(Math.random() > 0.5);
+    burst.x = e.clientX + (Math.random() * 40 - 20);
+    burst.y = e.clientY + (Math.random() * 40 - 20);
+    burst.speedY = Math.random() * 2 + 1;
+    burst.speedX = Math.random() * 3 - 1.5;
+    particles.push(burst);
+    setTimeout(() => {
+      const idx = particles.indexOf(burst);
+      if (idx !== -1) particles.splice(idx, 1);
+    }, 2500);
+  }
+});
+
+// 5. Interactive 3D Card Tilt & Parallax Physics
+const tiltCards = document.querySelectorAll('.tilt-card');
+tiltCards.forEach((card) => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * -9;
+    const rotateY = ((x - centerX) / centerX) * 9;
+
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+
+    const shine = card.querySelector('.shine-fx');
+    if (shine) {
+      shine.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.35), transparent 60%)`;
+    }
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+  });
+});
+
+// 6. Modal & Direct HD Card Downloads
 const cards = {
   gold: {
     src: './assets/images/wedding-card.png',
@@ -160,7 +257,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeCard();
 });
 
-// 5. Toast Notification
+// 7. Toast Notification
 let toastTimer;
 function showToast(message) {
   const el = document.getElementById('toast');
@@ -170,7 +267,7 @@ function showToast(message) {
   toastTimer = setTimeout(() => el.classList.remove('show'), 3000);
 }
 
-// 6. Share Functionality
+// 8. Share Functionality
 async function shareInvite() {
   const text = '॥ श्री गणेशाय नमः ॥\n\nआप सादर आमंत्रित हैं अमित संग शिवांगी के शुभ वैवाहिक समारोह में।\n\n• ०२ दिसम्बर २०२६: शुभ विवाह\n• ०४ दिसम्बर २०२६: अखण्ड रामायण पाठ\n• ०५ दिसम्बर २०२६: बहूभोज एवं प्रीतिभोज (सायं ६ बजे)\n\nस्थल: ग्राम नोखेपुर, पोस्ट बासूपुर, जिला सुल्तानपुर (उ०प्र०)\n\nकृप्या पधारकर अपना स्नेहिल आशीर्वाद प्रदान करें।';
   if (navigator.share) {
@@ -193,7 +290,7 @@ async function copyInvite(text) {
   }
 }
 
-// 7. Scroll Reveal
+// 9. Scroll Reveal Observer
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {

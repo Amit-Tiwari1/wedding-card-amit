@@ -4,8 +4,8 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="theme-color" content="#45101f"/>
-  <meta name="description" content="A heartfelt royal wedding invitation for Amit Tiwari and Shivangi Tiwari."/>
-  <title>अमित संग शिवांगी | शुभ विवाह निमंत्रण</title>
+  <meta name="description" content="A cinematic royal interactive wedding invitation for Amit Tiwari and Shivangi Tiwari."/>
+  <title>अमित संग शिवांगी | भव्य शुभ विवाह निमंत्रण</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
 
 <body class="invite-locked">
 
-  <!-- Floating Falling Petals Overlay -->
+  <!-- Floating Falling Petals & Gold Dust Canvas -->
   <canvas id="petalsCanvas" aria-hidden="true"></canvas>
 
   <!-- Interactive 3D Envelope Opening Screen -->
@@ -38,7 +38,7 @@
         <div class="envelope-flap"></div>
         <div class="envelope-seal">卐</div>
       </div>
-      <h1 class="opening-title">The Wedding</h1>
+      <h1 class="opening-title">The Royal Wedding</h1>
       <p class="opening-subtitle">A heartfelt invitation, made with love</p>
       <button class="open-invite-btn" id="openInviteButton" type="button">
         Open Invitation <span aria-hidden="true">✧</span>
@@ -57,14 +57,18 @@
       </a>
       <div class="navlinks">
         <a href="#home">Home</a>
+        <a href="#countdown">Countdown</a>
         <a href="#karyakram">Celebrations</a>
         <a href="#parivar">The Couple</a>
         <a href="#cards">Invitation Cards</a>
         <a href="#wedding-location">Venue Map</a>
       </div>
       <div class="navtools">
-        <button class="iconbtn" id="mantraToggle" type="button" aria-pressed="false" aria-label="Play Ganesh Aarti" title="Play Aarti">
-          ♫
+        <button class="iconbtn sound-toggle" id="mantraToggle" type="button" aria-pressed="false" aria-label="Play Ganesh Aarti" title="Play Aarti">
+          <span class="music-bars" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <span class="icon-label">♫</span>
         </button>
         <button class="iconbtn" type="button" onclick="shareInvite()" aria-label="Share Invitation" title="Share">
           <svg fill="none" height="18" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="18">
@@ -99,7 +103,10 @@
         <h1>Amit <em>Weds</em> Shivangi</h1>
         <div class="poster-date"><span aria-hidden="true">✧</span> 1–5 DECEMBER 2026 <span aria-hidden="true">✧</span></div>
       </div>
-      <figure class="poster-hero-frame">
+      
+      <!-- Interactive 3D Tilt Card Frame -->
+      <figure class="poster-hero-frame tilt-card" id="heroTiltCard">
+        <div class="shine-fx"></div>
         <img src="./assets/images/AS.jpeg" alt="Amit and Shivangi Wedding Invitation" fetchpriority="high"/>
       </figure>
     </div>
@@ -107,6 +114,40 @@
   </header>
 
   <main id="main">
+
+    <!-- Live Wedding Countdown Timer Section -->
+    <section class="countdown-section" id="countdown" aria-label="शुभ विवाह उल्टी गिनती">
+      <div class="countdown-inner reveal">
+        <div class="countdown-tag">शुभ विवाह का शुभ मुहुर्त</div>
+        <h3>Wedding Starts In</h3>
+        <div class="timer-display" id="weddingTimer">
+          <div class="time-block">
+            <span class="time-num" id="days">00</span>
+            <span class="time-label">Days</span>
+          </div>
+          <div class="time-sep">:</div>
+          <div class="time-block">
+            <span class="time-num" id="hours">00</span>
+            <span class="time-label">Hours</span>
+          </div>
+          <div class="time-sep">:</div>
+          <div class="time-block">
+            <span class="time-num" id="minutes">00</span>
+            <span class="time-label">Mins</span>
+          </div>
+          <div class="time-sep">:</div>
+          <div class="time-block">
+            <span class="time-num" id="seconds">00</span>
+            <span class="time-label">Secs</span>
+          </div>
+        </div>
+        <div class="calendar-btn-wrap">
+          <a class="btn-cal" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Amit+Weds+Shivangi+Wedding&dates=20261202T103000Z/20261202T183000Z&details=Shubh+Vivah+ceremony+of+Amit+Tiwari+and+Shivangi+Tiwari&location=Nokhepur,+Basupur,+Sultanpur" target="_blank" rel="noopener noreferrer">
+            📅 Add Shubh Vivah (02 Dec) to Google Calendar
+          </a>
+        </div>
+      </div>
+    </section>
 
     <!-- Shlok Mantra Section -->
     <section class="shubh-section" aria-label="मांगलिक श्लोक">
@@ -140,7 +181,8 @@
           <p>Join us for the auspicious ceremonies and wedding celebrations from 1 to 5 December 2026.</p>
         </div>
 
-        <div class="celebration-poster-wrap reveal">
+        <div class="celebration-poster-wrap reveal tilt-card">
+          <div class="shine-fx"></div>
           <img class="celebration-poster-art" src="./assets/images/plan-card.jpg" alt="Matri Pujan on 1 Dec, Vivah on 2 Dec, Akhand Ramayan on 4 Dec, Bahubhoj on 5 Dec" loading="lazy">
         </div>
 
@@ -158,7 +200,7 @@
             <p>मांगलिक मातृ पूजन एवं जनेऊ संस्कार (वर निवास स्थान)।</p>
           </article>
 
-          <article class="event reveal">
+          <article class="event reveal highlight-event">
             <div class="event-top">
               <span class="event-number">2</span>
               <span class="event-day">Wednesday</span>
@@ -197,7 +239,7 @@
             <p>प्रभु श्री रामचरितमानस अखण्ड पाठ का शुभारंभ (वर निवास स्थान)।</p>
           </article>
 
-          <article class="event reveal">
+          <article class="event reveal highlight-event">
             <div class="event-top">
               <span class="event-number">5</span>
               <span class="event-day">Saturday</span>
@@ -294,7 +336,8 @@
 
         <div class="card-gallery">
           <!-- Card 1: Shubh Vivah -->
-          <article class="card-tile reveal">
+          <article class="card-tile reveal tilt-card">
+            <div class="shine-fx"></div>
             <div class="card-tile-head">
               <h3>शुभ विवाह निमंत्रण पत्र</h3>
               <span class="small-label">Amit &amp; Shivangi</span>
@@ -313,7 +356,8 @@
           </article>
 
           <!-- Card 2: Preetibhoj & Bahubhoj -->
-          <article class="card-tile reveal">
+          <article class="card-tile reveal tilt-card">
+            <div class="shine-fx"></div>
             <div class="card-tile-head">
               <h3>बहूभोज एवं प्रीतिभोज पत्रिका</h3>
               <span class="small-label">Akhand Ramayan &amp; Preetibhoj</span>
