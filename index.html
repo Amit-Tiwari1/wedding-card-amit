@@ -2,29 +2,43 @@
 <html lang="hi">
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
   <meta name="theme-color" content="#45101f"/>
-  <meta name="description" content="A cinematic royal interactive wedding invitation for Amit Tiwari and Shivangi Tiwari."/>
+  <meta name="description" content="A royal, cinematic, and interactive wedding invitation for Amit Tiwari and Shivangi Tiwari."/>
   <title>अमित संग शिवांगी | भव्य शुभ विवाह निमंत्रण</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 
-  <!-- External Stylesheet -->
   <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body class="invite-locked">
 
-  <!-- Floating Falling Petals & Gold Dust Canvas -->
+  <!-- Interactive Particles & Rose Petals Canvas -->
   <canvas id="petalsCanvas" aria-hidden="true"></canvas>
 
-  <!-- Interactive 3D Envelope Opening Screen -->
+  <!-- Interactive 3D Envelope Screen with Diya Lighting -->
   <div class="opening-screen" id="openingScreen" role="dialog" aria-modal="true" aria-label="शुभ विवाह निमंत्रण पत्र">
     <div class="opening-content">
-      <div class="opening-blessing">॥ श्री गणेशाय नमः ॥</div>
+      
+      <!-- Interactive Diyas (Click to Light Up) -->
+      <div class="diya-wrapper">
+        <div class="diya left-diya unlit" id="leftDiya" onclick="lightDiya('leftDiya')" title="दीप प्रज्वलित करें">
+          <div class="flame"></div>
+          <div class="diya-bowl">🪔</div>
+          <!-- <span class="diya-text">दीप जलाएं</span> -->
+        </div>
+        <div class="opening-blessing">॥ श्री गणेशाय नमः ॥</div>
+        <div class="diya right-diya unlit" id="rightDiya" onclick="lightDiya('rightDiya')" title="दीप प्रज्वलित करें">
+          <div class="flame"></div>
+          <div class="diya-bowl">🪔</div>
+          <!-- <span class="diya-text">दीप जलाएं</span> -->
+        </div>
+      </div>
+
       <div class="envelope-scene" id="envelopeOpenCard" role="button" tabindex="0" aria-label="निमंत्रण पत्र खोलें">
         <div class="envelope-back"></div>
         <div class="envelope-letter">
@@ -38,10 +52,10 @@
         <div class="envelope-flap"></div>
         <div class="envelope-seal">卐</div>
       </div>
-      <h1 class="opening-title">The Royal Wedding</h1>
-      <p class="opening-subtitle">A heartfelt invitation, made with love</p>
+      <h1 class="opening-title">The Invitation Card</h1>
+      <p class="opening-subtitle">स्नेही स्वजन, सपरिवार सादर आमंत्रित हैं</p>
       <button class="open-invite-btn" id="openInviteButton" type="button">
-        Open Invitation <span aria-hidden="true">✧</span>
+        पत्र खोलें / Open Invitation <span aria-hidden="true">✧</span>
       </button>
     </div>
   </div>
@@ -55,20 +69,27 @@
         <span class="brandmark">ॐ</span>
         <span class="brandtext">Wedding Invitation<small>Amit Weds Shivangi</small></span>
       </a>
-      <div class="navlinks">
-        <a href="#home">Home</a>
-        <a href="#countdown">Countdown</a>
-        <a href="#karyakram">Celebrations</a>
-        <a href="#parivar">The Couple</a>
-        <a href="#cards">Invitation Cards</a>
-        <a href="#wedding-location">Venue Map</a>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle Menu" aria-expanded="false" onclick="toggleMobileNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="navlinks" id="navLinks">
+        <a href="#home" onclick="closeMobileNav()">Home</a>
+        <a href="#countdown" onclick="closeMobileNav()">Countdown</a>
+        <a href="#curtain-stage" onclick="closeMobileNav()">Moments</a>
+        <a href="#karyakram" onclick="closeMobileNav()">Celebrations</a>
+        <a href="#parivar" onclick="closeMobileNav()">The Couple</a>
+        <a href="#cards" onclick="closeMobileNav()">Cards</a>
+        <a href="#blessings" onclick="closeMobileNav()">Wishes</a>
+        <a href="#wedding-location" onclick="closeMobileNav()">Venue Map</a>
       </div>
       <div class="navtools">
-        <button class="iconbtn sound-toggle" id="mantraToggle" type="button" aria-pressed="false" aria-label="Play Ganesh Aarti" title="Play Aarti">
-          <span class="music-bars" aria-hidden="true">
-            <span></span><span></span><span></span>
-          </span>
-          <span class="icon-label">♫</span>
+        <button class="iconbtn" id="ambienceToggle" type="button" onclick="toggleAmbience()" title="Toggle Day/Night Mode">
+          ☀️
         </button>
         <button class="iconbtn" type="button" onclick="shareInvite()" aria-label="Share Invitation" title="Share">
           <svg fill="none" height="18" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="18">
@@ -88,7 +109,7 @@
     </div>
   </nav>
 
-  <!-- Background Aarti Audio -->
+  <!-- Audio Source -->
   <audio id="ganeshMantra" loop preload="none">
     <source src="./assets/audio/ganesh-arti.mp3" type="audio/mpeg"/>
   </audio>
@@ -104,7 +125,6 @@
         <div class="poster-date"><span aria-hidden="true">✧</span> 1–5 DECEMBER 2026 <span aria-hidden="true">✧</span></div>
       </div>
       
-      <!-- Interactive 3D Tilt Card Frame -->
       <figure class="poster-hero-frame tilt-card" id="heroTiltCard">
         <div class="shine-fx"></div>
         <img src="./assets/images/AS.jpeg" alt="Amit and Shivangi Wedding Invitation" fetchpriority="high"/>
@@ -115,10 +135,10 @@
 
   <main id="main">
 
-    <!-- Live Wedding Countdown Timer Section -->
+    <!-- Live Wedding Countdown Section -->
     <section class="countdown-section" id="countdown" aria-label="शुभ विवाह उल्टी गिनती">
       <div class="countdown-inner reveal">
-        <div class="countdown-tag">शुभ विवाह का शुभ मुहुर्त</div>
+        <div class="countdown-tag">शुभ विवाह का पावन मुहुर्त</div>
         <h3>Wedding Starts In</h3>
         <div class="timer-display" id="weddingTimer">
           <div class="time-block">
@@ -149,15 +169,29 @@
       </div>
     </section>
 
-    <!-- Shlok Mantra Section -->
+    <!-- Parallax 3D Curtain Stage Section -->
+    <section class="stage-section" id="curtain-stage">
+      <div class="curtain curtain-left" id="curtainLeft"></div>
+      <div class="curtain curtain-right" id="curtainRight"></div>
+      <div class="stage-content reveal">
+        <span class="stage-tag">✦ FOREVER & ALWAYS ✦</span>
+        <h2>स्नेह, संस्कार एवं बड़ों के शुभाशीर्वाद की पावन बेला</h2>
+        <div class="stage-avatar-wrap tilt-card">
+          <img src="./assets/images/couple-cartoon.png" alt="Amit and Shivangi Couple Art" class="stage-avatar"/>
+        </div>
+        <p class="stage-quote">"प्रेम, विश्वास और समर्पण की नई यात्रा का शुभारंभ"</p>
+      </div>
+    </section>
+
+    <!-- Shlok Section -->
     <section class="shubh-section" aria-label="मांगलिक श्लोक">
       <div class="shubh-inner reveal">
         <div class="shubh-ornament">卐 &nbsp; ॐ &nbsp; 卐</div>
         <h3 class="shubh-mantra">॥ मङ्गलम् भगवान विष्णुः, मङ्गलम् गरुड़ध्वजः ॥</h3>
         <div class="shubh-divider"><span></span>✦<span></span></div>
         <p class="shubh-verse">
-          मङ्गलम् पुण्डरीकाक्षः, मङ्गलाय तनो हरिः ॥<br/>
-          सर्वमंगल मांगल्ये, शिवे सर्वार्थ साधिके । शरण्ये त्र्यम्बके गौरी, नारायणी नमोस्तुते ॥
+          मङ्गलम् पुण्डरीकाक्षः, मङ्गलाय तनो हरिः ॥[cite: 2]<br/>
+          सर्वमंगल मांगल्ये, शिवे सर्वार्थ साधिके । शरण्ये त्र्यम्बके गौरी, नारायणी नमोस्तुते ॥[cite: 3]
         </p>
       </div>
     </section>
@@ -167,7 +201,7 @@
       <div class="hindi-welcome-inner reveal">
         <h2>सपरिवार सादर आमंत्रण</h2>
         <p>
-          परमपिता परमेश्वर एवं प्रभु श्रीराम की असीम कृपा से आयोजित शुभ वैवाहिक कार्यक्रमों में आपकी गरिमामयी उपस्थिति सादर प्रार्थनीय है।
+          परमपिता परमेश्वर एवं प्रभु श्रीराम की असीम कृपा से आयोजित शुभ वैवाहिक कार्यक्रमों में आपकी गरिमामयी उपस्थिति सादर प्रार्थनीय है।[cite: 3, 5]
         </p>
       </div>
     </section>
@@ -192,12 +226,12 @@
               <span class="event-number">1</span>
               <span class="event-day">Tuesday</span>
             </div>
-            <h3>मातृ पूजन एवं जनेऊ संस्कार</h3>
+            <h3>मातृ पूजन एवं जनेऊ संस्कार[cite: 2]</h3>
             <div class="event-date">
               <svg fill="none" height="17" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="17"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>
-              1 December 2026
+              1 December 2026[cite: 2]
             </div>
-            <p>मांगलिक मातृ पूजन एवं जनेऊ संस्कार (वर निवास स्थान)।</p>
+            <p>मांगलिक मातृ पूजन एवं जनेऊ संस्कार (वर निवास स्थान)।[cite: 2]</p>
           </article>
 
           <article class="event reveal highlight-event">
@@ -205,12 +239,12 @@
               <span class="event-number">2</span>
               <span class="event-day">Wednesday</span>
             </div>
-            <h3>शुभ विवाह / Shubh Vivah</h3>
+            <h3>शुभ विवाह / Shubh Vivah[cite: 1, 2]</h3>
             <div class="event-date">
               <svg fill="none" height="17" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="17"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>
-              2 December 2026
+              2 December 2026[cite: 1, 2]
             </div>
-            <p>बारात हमारे निवास स्थान से सायं 4:00 बजे वधू के निवास स्थान (महमूदपुर जंगल) के लिए प्रस्थान करेगी।</p>
+            <p>बारात हमारे निवास स्थान से सायं 4:00 बजे वधू के निवास स्थान (महमूदपुर जंगल) के लिए प्रस्थान करेगी।[cite: 3]</p>
           </article>
 
           <article class="event reveal">
@@ -218,12 +252,12 @@
               <span class="event-number">3</span>
               <span class="event-day">Thursday</span>
             </div>
-            <h3>बारात वापसी</h3>
+            <h3>बारात वापसी[cite: 2]</h3>
             <div class="event-date">
               <svg fill="none" height="17" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="17"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>
-              3 December 2026
+              3 December 2026[cite: 2]
             </div>
-            <p>ससम्मान बारात की वापसी निज निवास स्थान नोखेपुर।</p>
+            <p>ससम्मान बारात की वापसी निज निवास स्थान नोखेपुर।[cite: 2, 3]</p>
           </article>
 
           <article class="event reveal">
@@ -231,12 +265,12 @@
               <span class="event-number">4</span>
               <span class="event-day">Friday</span>
             </div>
-            <h3>श्री अखण्ड रामायण पाठ</h3>
+            <h3>श्री अखण्ड रामायण पाठ[cite: 2, 5]</h3>
             <div class="event-date">
               <svg fill="none" height="17" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="17"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>
-              4 December 2026
+              4 December 2026[cite: 2, 5]
             </div>
-            <p>प्रभु श्री रामचरितमानस अखण्ड पाठ का शुभारंभ (वर निवास स्थान)।</p>
+            <p>प्रभु श्री रामचरितमानस अखण्ड पाठ का शुभारंभ (वर निवास स्थान)।[cite: 2, 5]</p>
           </article>
 
           <article class="event reveal highlight-event">
@@ -244,17 +278,13 @@
               <span class="event-number">5</span>
               <span class="event-day">Saturday</span>
             </div>
-            <h3>बहूभोज एवं प्रीतिभोज</h3>
+            <h3>बहूभोज एवं प्रीतिभोज[cite: 1, 2, 4, 5]</h3>
             <div class="event-date">
               <svg fill="none" height="17" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="17"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>
-              5 December 2026 (सायं 6:00 बजे)
+              5 December 2026 (सायं 6:00 बजे)[cite: 1, 2, 4]
             </div>
-            <p>वधू आगमन एवं स्नेह प्रीतिभोज (स्थल: ग्राम नोखेपुर, पोस्ट बासूपुर, सुल्तानपुर)।</p>
+            <p>वधू आगमन एवं स्नेह प्रीतिभोज (स्थल: ग्राम नोखेपुर, पोस्ट बासूपुर, सुल्तानपुर)।[cite: 2, 5]</p>
           </article>
-        </div>
-
-        <div class="invite-note reveal">
-          On this auspicious occasion, <strong>your gracious presence and blessings are warmly requested.</strong>
         </div>
       </div>
     </section>
@@ -274,11 +304,11 @@
             <div class="person">
               <span class="person-role">वर / Groom</span>
               <div class="person-emblem" aria-hidden="true">✦</div>
-              <h3>चि० अमित तिवारी</h3>
+              <h3>चि० अमित तिवारी[cite: 1, 3]</h3>
               <p>
-                <strong>सुपौत्र:</strong> स्व० सरस्वती देवी एवं स्व० राम अजोर तिवारी<br/>
-                <strong>सुपुत्र:</strong> श्रीमती माधुरी तिवारी एवं श्री अमरनाथ तिवारी<br/>
-                ग्राम – नोखेपुर, पो० – बासूपुर, जि० – सुल्तानपुर
+                <strong>सुपौत्र:</strong> स्व० सरस्वती देवी एवं स्व० राम अजोर तिवारी[cite: 3]<br/>
+                <strong>सुपुत्र:</strong> श्रीमती माधुरी तिवारी एवं श्री अमरनाथ तिवारी[cite: 3]<br/>
+                ग्राम – नोखेपुर, पो० – बासूपुर, जि० – सुल्तानपुर[cite: 3]
               </p>
             </div>
 
@@ -288,37 +318,36 @@
             <div class="person">
               <span class="person-role">वधू / Bride</span>
               <div class="person-emblem" aria-hidden="true">❀</div>
-              <h3>आयु० शिवांगी तिवारी</h3>
+              <h3>आयु० शिवांगी तिवारी[cite: 1, 3]</h3>
               <p>
-                <strong>सुपौत्री:</strong> शोभावती तिवारी एवं स्व० श्री राम आसरे तिवारी<br/>
-                <strong>सुपुत्री:</strong> श्रीमती कमलेश तिवारी एवं श्री अश्वनी कुमार तिवारी<br/>
-                ग्राम – महमूदपुर जंगल, पो० – पारस पट्टी पान्डेबाबा, जि० – सुल्तानपुर
+                <strong>सुपौत्री:</strong> शोभावती तिवारी एवं स्व० श्री राम आसरे तिवारी[cite: 3]<br/>
+                <strong>सुपुत्री:</strong> श्रीमती कमलेश तिवारी एवं श्री अश्वनी कुमार तिवारी[cite: 3]<br/>
+                ग्राम – महमूदपुर जंगल, पो० – पारस पट्टी पान्डेबाबा, जि० – सुल्तानपुर[cite: 3]
               </p>
             </div>
           </div>
 
           <div class="family-separator"></div>
 
-          <!-- Extended Family Section -->
           <div class="bal-aagrah">
             <strong>बाल आग्रह:</strong><br/>
-            "नन्हे नन्हे पाँव हैं कैसे आऊँ तुम्हें बुलाने को, मेरे मामा की शादी में भूल न जाना आने को।"<br/>
-            <em>— आर्किशी, सृष्टि, अक्षत, शिवांश</em>
+            "नन्हे नन्हे पाँव हैं कैसे आऊँ तुम्हें बुलाने को, मेरे मामा की शादी में भूल न जाना आने को।"[cite: 3]<br/>
+            <em>— आर्किशी, सृष्टि, अक्षत, शिवांश[cite: 3]</em>
           </div>
 
           <div class="family-members-grid">
             <div>
               <strong>दर्शनाभिलाषी:</strong><br/>
-              श्री प्रशान्त तिवारी, श्री डॉ० प्रवीण तिवारी, श्री प्रतीक तिवारी, रिसभ, युग
+              श्री प्रशान्त तिवारी, श्री डॉ० प्रवीण तिवारी, श्री प्रतीक तिवारी, रिसभ, युग[cite: 3, 5]
             </div>
             <div>
               <strong>स्वागताकांक्षी:</strong><br/>
-              श्री राम प्रसाद तिवारी, श्री राम सकल तिवारी
+              श्री राम प्रसाद तिवारी, श्री राम सकल तिवारी[cite: 3, 5]
             </div>
             <div>
               <strong>विनीतः</strong><br/>
-              श्री अमरनाथ तिवारी<br/>
-              मोबाईल: <a href="tel:9450661095">9450661095</a>, <a href="tel:9454379145">9454379145</a>
+              श्री अमरनाथ तिवारी[cite: 3, 5]<br/>
+              मोबाईल: <a href="tel:9450661095">9450661095</a>, <a href="tel:9454379145">9454379145</a>[cite: 3, 5]
             </div>
           </div>
         </div>
@@ -339,7 +368,7 @@
           <article class="card-tile reveal tilt-card">
             <div class="shine-fx"></div>
             <div class="card-tile-head">
-              <h3>शुभ विवाह निमंत्रण पत्र</h3>
+              <h3>शुभ विवाह निमंत्रण पत्र[cite: 2, 3]</h3>
               <span class="small-label">Amit &amp; Shivangi</span>
             </div>
             <button class="card-image-button" type="button" onclick="openCard('gold')" aria-label="विवाह कार्ड बड़ा देखें">
@@ -359,7 +388,7 @@
           <article class="card-tile reveal tilt-card">
             <div class="shine-fx"></div>
             <div class="card-tile-head">
-              <h3>बहूभोज एवं प्रीतिभोज पत्रिका</h3>
+              <h3>बहूभोज एवं प्रीतिभोज पत्रिका[cite: 5]</h3>
               <span class="small-label">Akhand Ramayan &amp; Preetibhoj</span>
             </div>
             <button class="card-image-button" type="button" onclick="openCard('celebrations')" aria-label="बहूभोज कार्ड बड़ा देखें">
@@ -378,6 +407,31 @@
       </div>
     </section>
 
+    <!-- Digital Ashirwad & WhatsApp Wishes Section -->
+    <section class="section blessings-section" id="blessings">
+      <div class="section-inner">
+        <div class="section-heading reveal">
+          <div class="overline">डिजिटल आशीर्वाद पुस्तिका</div>
+          <h2>Send Your Warm Wishes</h2>
+          <p>वर-वधू को अपना स्नेह एवं शुभकामना संदेश प्रेषित करें</p>
+        </div>
+
+        <div class="blessings-card reveal">
+          <div class="blessings-form-side">
+            <h3>आशीर्वाद संदेश लिखें</h3>
+            <input type="text" id="guestName" placeholder="आपका शुभ नाम (Your Name)" required/>
+            <textarea id="guestMessage" rows="3" placeholder="वर-वधू हेतु आशीर्वाद एवं शुभकामनाएँ..."></textarea>
+            
+            <div class="form-btn-group">
+              <button class="btn btn-whatsapp" type="button" onclick="sendWhatsAppWish()">
+                💬 व्हाट्सएप पर सीधे बधाई भेजें
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Venue Map Section -->
     <section class="venue-map-section" id="wedding-location" aria-labelledby="venue-map-title">
       <div class="venue-map-inner reveal">
@@ -386,7 +440,7 @@
         <h2 id="venue-map-title">Family Event Venue</h2>
         <p>
           The baraat departs from the groom's residence. The Ramcharitmanas Path and Preetibhoj will also be held here:<br/>
-          <strong>Village Nokhepur, Post Basupur, District Sultanpur, Uttar Pradesh.</strong>
+          <strong>Village Nokhepur, Post Basupur, District Sultanpur, Uttar Pradesh.[cite: 2, 3, 5]</strong>
         </p>
         <a class="venue-map-button" 
            href="https://www.google.com/maps/search/?api=1&query=Village+Nokhepur+Post+Basupur+District+Sultanpur+Uttar+Pradesh" 
@@ -400,6 +454,18 @@
     </section>
 
   </main>
+
+  <!-- Floating Music Player Ribbon -->
+  <div class="floating-vinyl-player" id="vinylPlayer" onclick="toggleMantra()" title="Click to Play/Pause Aarti">
+    <div class="vinyl-disc" id="vinylDisc">
+      <div class="vinyl-groove"></div>
+      <div class="vinyl-center">ॐ</div>
+    </div>
+    <div class="vinyl-info">
+      <span>गणेश आरती</span>
+      <small id="vinylStatus">Paused</small>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
@@ -421,7 +487,6 @@
     </div>
   </div>
 
-  <!-- External Script -->
   <script src="script.js"></script>
 </body>
 </html>
