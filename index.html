@@ -1,580 +1,383 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="hi">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="#3f101b" name="theme-color"/>
-<meta content="A heartfelt wedding invitation for Amit Tiwari and Shivangi Tiwari." name="description"/>
-<title>Amit Weds Shivangi | Wedding Invitation</title>
-<style>
-:root {
- --wine:#45101f; --wine2:#6b1d2a; --wine3:#8b2632; --gold:#d9b46c; --gold-light:#f5e6bd;
- --cream:#fff9ef; --blush:#f8e8e3; --ink:#341923; --muted:#7f6870; --line:rgba(132,48,54,.20);
- --serif:'Noto Serif Devanagari','Kohinoor Devanagari','Kokila','Mangal',serif; --sans:'Avenir Next','Segoe UI',system-ui,sans-serif;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:95px}
-body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--serif);overflow-x:hidden}
-button,a{-webkit-tap-highlight-color:transparent}
-button{font:inherit}
-::selection{background:#e9d5a1;color:var(--wine)}
-.skip{position:absolute;left:-9999px;top:0;background:white;padding:10px;z-index:99}
-.skip:focus{left:10px}
-.topnav{position:sticky;top:0;z-index:20;background:rgba(69,16,31,.94);backdrop-filter:blur(16px);color:#fff7e8;border-bottom:1px solid rgba(231,201,139,.36)}
-.navinner{max-width:1180px;margin:auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;white-space:nowrap}
-.brandmark{width:34px;height:34px;border:1px solid rgba(238,211,155,.75);border-radius:50%;display:grid;place-items:center;color:#f2d68d;font-size:18px}
-.brandtext{font-size:.9rem;line-height:1.4;letter-spacing:.02em}
-.brandtext small{display:block;font:10px var(--sans);letter-spacing:.17em;color:#e1c996;text-transform:uppercase}
-.navlinks{display:flex;align-items:center;gap:22px}
-.navlinks a{text-decoration:none;color:#f5e9d3;font-size:.9rem;opacity:.88;transition:opacity .2s}
-.navlinks a:hover{opacity:1;color:#fff}
-.navtools{display:flex;gap:8px}
-.iconbtn{width:39px;height:39px;border-radius:50%;display:grid;place-items:center;background:transparent;color:#fff3db;border:1px solid #98705b;cursor:pointer;transition:all .2s}
-.iconbtn:hover{background:#e1c17c;color:var(--wine);transform:translateY(-1px)}
-.hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(125deg,#3e101e 0%,#5b1726 51%,#7b2631 100%);color:#fff8e9;min-height:650px}
-.hero:before,.hero:after{content:"";position:absolute;z-index:-1;border:1px solid rgba(232,197,124,.19);border-radius:50%;pointer-events:none}
-.hero:before{width:670px;height:670px;left:-260px;top:-260px;box-shadow:0 0 0 40px rgba(232,197,124,.025),0 0 0 90px rgba(232,197,124,.02)}
-.hero:after{width:740px;height:740px;right:-310px;bottom:-440px;box-shadow:0 0 0 44px rgba(232,197,124,.03),0 0 0 94px rgba(232,197,124,.02)}
-.hero-inner{max-width:1180px;margin:auto;padding:76px 28px 78px;display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center}
-.hero-copy{position:relative;z-index:1}
-.kicker{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(235,208,147,.42);border-radius:999px;padding:8px 14px;color:#f0d79c;font-size:.82rem;letter-spacing:.04em;background:rgba(255,255,255,.035)}
-.kicker:before{content:"✦";font-size:13px}
-.ganeshline{margin:25px 0 10px;color:#f1d58c;font-size:1.1rem;letter-spacing:.02em}
-h1{font-size:clamp(2.65rem,5.2vw,5.2rem);font-weight:600;line-height:1.18;margin:0;letter-spacing:-.035em}
-.hero .names{margin:22px 0 18px;font-size:clamp(1.35rem,2.6vw,2rem);color:#f4dfb0}
-.names .amp{display:inline-block;margin:0 10px;color:#cfaa62;font-size:.78em}
-.hero-intro{max-width:545px;color:#f4e7da;line-height:2;font-size:1rem;margin:0}
-.hero-rule{display:flex;align-items:center;gap:12px;margin:26px 0;color:#d9b46c}
-.hero-rule:before,.hero-rule:after{content:"";height:1px;width:65px;background:linear-gradient(90deg,transparent,#d7b46e)}
-.hero-rule:after{background:linear-gradient(90deg,#d7b46e,transparent)}
-.datepill{display:inline-flex;gap:10px;align-items:center;border-radius:12px;padding:13px 16px;background:rgba(255,248,228,.08);border:1px solid rgba(238,210,144,.28);color:#f7e5ba;font:600 .92rem var(--sans)}
-.datepill svg{flex:0 0 auto}
-.hero-actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:29px}
-.btn{display:inline-flex;justify-content:center;align-items:center;gap:9px;border-radius:999px;padding:13px 19px;text-decoration:none;font-size:.92rem;font-weight:600;cursor:pointer;border:1px solid transparent;transition:transform .2s,box-shadow .2s,background .2s}
-.btn:hover{transform:translateY(-2px)}
-.btn-gold{background:linear-gradient(135deg,#f2d89b,#d8b366);color:#44111d;box-shadow:0 8px 22px #16050b2b}
-.btn-ghost{background:transparent;color:#fff7e9;border-color:rgba(244,223,176,.55)}
-.btn-ghost:hover{background:rgba(255,255,255,.08)}
-.hero-art{position:relative;display:flex;justify-content:center;align-items:center;min-height:480px}
-.art-halo{position:absolute;width:min(100%,480px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(225,190,116,.19),rgba(225,190,116,0) 70%);}
-.art-frame{position:relative;width:min(76%,340px);padding:10px;border:1px solid rgba(235,205,134,.76);border-radius:10px;background:linear-gradient(135deg,rgba(255,250,235,.22),rgba(255,255,255,.03));box-shadow:0 28px 75px #16040b70;transform:rotate(2deg);transition:transform .5s ease}
-.art-frame:hover{transform:rotate(0deg) translateY(-5px)}
-.art-frame:before{content:"";position:absolute;inset:4px;border:1px solid rgba(238,210,144,.28);border-radius:6px;pointer-events:none}
-.art-frame img{display:block;width:100%;height:auto;border-radius:4px;background:#e5c56b}
-.float-tag{position:absolute;bottom:28px;left:2%;padding:12px 17px;border:1px solid rgba(235,205,134,.5);background:rgba(69,16,31,.82);backdrop-filter:blur(12px);border-radius:12px;color:#f7e7c3;box-shadow:0 15px 30px #1c060b2e;font-size:.85rem}
-.float-tag strong{display:block;font-size:1rem;color:#fff2d6;font-weight:600}
-.scrollhint{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font:10px var(--sans);letter-spacing:.18em;color:#d9c4ad;text-transform:uppercase;display:flex;gap:8px;align-items:center}
-.scrollhint:before{content:"";width:24px;height:1px;background:#bd9a66}
-.section{padding:88px 24px}
-.section-inner{max-width:1120px;margin:auto}
-.section-heading{text-align:center;max-width:700px;margin:0 auto 42px}
-.overline{font:600 .73rem var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#a36d45}
-h2{color:var(--wine);font-size:clamp(1.9rem,3.7vw,3rem);font-weight:600;line-height:1.35;margin:10px 0 12px;letter-spacing:-.02em}
-.section-heading p{color:var(--muted);line-height:1.9;margin:0;font-size:.98rem}
-.events-section{background:linear-gradient(180deg,#fffaf1,#f8efe4)}
-.event-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.event{position:relative;overflow:hidden;background:#fffdf7;border:1px solid #ead9b8;border-radius:17px;padding:25px 22px 24px;min-height:255px;box-shadow:0 8px 26px rgba(78,31,36,.055);transition:transform .25s,box-shadow .25s}
-.event:hover{transform:translateY(-5px);box-shadow:0 18px 36px rgba(78,31,36,.11)}
-.event:after{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#8c2e36,#d9b46c,#8c2e36)}
-.event-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.event-number{width:43px;height:43px;display:grid;place-items:center;border-radius:50%;background:#f7ead1;color:var(--wine2);border:1px solid #e6d0a6;font-size:1.2rem}
-.event-day{font:600 .76rem var(--sans);color:#9b7657;letter-spacing:.08em;text-transform:uppercase}
-.event h3{font-size:1.2rem;line-height:1.65;color:var(--wine);margin:20px 0 12px;font-weight:600}
-.event-date{display:flex;align-items:center;gap:8px;font-weight:600;color:#8a4b35;font-size:.91rem}
-.event-date svg{color:#b48850}
-.event p{line-height:1.8;color:#7b6970;font-size:.92rem;margin:14px 0 0}
-.invite-note{margin:38px auto 0;text-align:center;max-width:800px;padding:23px 28px;border-top:1px solid #e3ceb0;border-bottom:1px solid #e3ceb0;color:#674550;font-size:1.04rem;line-height:1.9}
-.invite-note strong{color:var(--wine);font-weight:600}
-.wedding-section{background:var(--blush);position:relative;overflow:hidden}
-.wedding-section:before{content:"❋";position:absolute;right:-20px;top:-85px;font-size:260px;color:#8d2b3210;pointer-events:none}
-.wedding-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:auto}
-.wedding-date{background:rgba(255,252,246,.75);border:1px solid #e1bfc0;border-radius:16px;padding:24px;display:flex;gap:17px;align-items:center}
-.date-icon{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:var(--wine);color:#f8dfaa;flex:0 0 auto}
-.wedding-date h3{margin:0 0 5px;color:var(--wine);font-size:1.25rem}
-.wedding-date p{margin:0;color:#82646b;font-size:.9rem;line-height:1.7}
-.family-section{background:var(--cream)}
-.family-card{max-width:920px;margin:auto;background:#fffdfa;border:1px solid #e6d6bf;border-radius:22px;padding:32px;box-shadow:0 18px 45px rgba(80,34,44,.07)}
-.family-names{display:grid;grid-template-columns:1fr auto 1fr;gap:22px;align-items:center;text-align:center}
-.person h3{font-size:1.55rem;color:var(--wine);margin:0 0 8px}
-.person p{color:#806d72;font-size:.92rem;line-height:1.9;margin:0}
-.ornament{font-size:2rem;color:#c29a54}
-.family-separator{height:1px;background:linear-gradient(90deg,transparent,#dfc49c,transparent);margin:25px 0}
-.request-text{max-width:720px;margin:auto;text-align:center;line-height:2;color:#71515a;font-size:1rem}
-.request-text strong{color:var(--wine)}
-.cards-section{background:#f5eee3}
-.card-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;max-width:1100px;margin:auto}
-.card-tile{background:#fffaf1;border:1px solid #e3d0ab;border-radius:18px;overflow:hidden;box-shadow:0 12px 36px rgba(66,20,32,.08);display:flex;flex-direction:column}
-.card-tile-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 19px;border-bottom:1px solid #eee1cb}
-.card-tile-head h3{font-size:1.05rem;color:var(--wine);margin:0;font-weight:600}
-.small-label{font:500 .7rem var(--sans);letter-spacing:.12em;color:#a17946;text-transform:uppercase}
-.card-image-button{border:0;padding:12px;background:linear-gradient(145deg,#f0dfbb,#faf1db);cursor:zoom-in;display:block;width:100%}
-.card-image-button img{display:block;width:100%;height:430px;object-fit:contain;border-radius:7px;transition:transform .3s}
-.card-image-button:hover img{transform:scale(1.018)}
-.tile-actions{display:flex;gap:8px;flex-wrap:wrap;padding:0 15px 17px}
-.tile-actions .btn{font-size:.83rem;padding:10px 14px}
-.btn-outline{background:transparent;border-color:#c9a46a;color:var(--wine)}
-.btn-outline:hover{background:#f5e7c8}
-.footer{background:var(--wine);color:#f3dfb7;padding:43px 24px;text-align:center}
-.footer-mark{font-size:1.7rem;color:#dfbd73}
-.footer p{margin:8px 0 0;font-size:.88rem;color:#dfcbb3}
-.footer strong{font-size:1.15rem;font-weight:500}
-.fineprint{font: .72rem var(--sans);opacity:.6;margin-top:18px!important}
-.toast{position:fixed;left:50%;bottom:25px;z-index:50;transform:translate(-50%,20px);opacity:0;pointer-events:none;padding:12px 18px;border-radius:999px;background:#2f131d;color:#fff4d9;box-shadow:0 12px 35px #0003;font:500 .9rem var(--sans);transition:all .25s;max-width:calc(100vw - 30px);text-align:center}
-.toast.show{opacity:1;transform:translate(-50%,0)}
-.modal{position:fixed;inset:0;z-index:40;background:rgba(25,8,15,.88);display:none;align-items:center;justify-content:center;padding:25px;backdrop-filter:blur(10px)}
-.modal.open{display:flex}
-.modal-inner{position:relative;max-width:min(92vw,760px);max-height:92vh;display:flex;flex-direction:column;align-items:center;gap:12px}
-.modal img{max-width:100%;max-height:82vh;object-fit:contain;border:1px solid #e5ca8d;border-radius:6px;box-shadow:0 25px 75px #0005}
-.modal-close{position:absolute;right:-14px;top:-14px;width:40px;height:40px;border:1px solid #dec58e;background:#4c1524;color:#fff4db;border-radius:50%;cursor:pointer;font-size:1.35rem}
-.modal-caption{color:#f7e8cb;font-size:.9rem}
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-@media(max-width:900px){.hero-inner{gap:20px;grid-template-columns:1fr .8fr;padding-top:58px}.art-frame{width:min(86%,320px)}.float-tag{left:-4%}.navlinks{gap:13px}.card-image-button img{height:365px}}
-@media(max-width:700px){
- .navinner{padding:10px 15px}.navlinks{display:none}.brandtext{font-size:.82rem}.hero{min-height:unset}
- .hero-inner{grid-template-columns:1fr;padding:47px 22px 58px;gap:26px;text-align:center}
- .hero-copy{display:flex;flex-direction:column;align-items:center}.ganeshline{margin-top:19px}.hero-intro{font-size:.94rem}
- .hero-rule{margin:19px auto}.hero-actions{justify-content:center}.hero-art{min-height:365px}
- .art-frame{width:min(72%,290px)}.float-tag{bottom:10px;left:3%;font-size:.78rem}
- .section{padding:62px 17px}.section-heading{margin-bottom:28px}.event-grid{grid-template-columns:1fr;gap:13px}
- .event{min-height:unset;padding:22px}.event h3{margin-top:14px}
- .wedding-grid{grid-template-columns:1fr;gap:12px}.family-card{padding:24px 18px}.family-names{grid-template-columns:1fr;gap:14px}.ornament{font-size:1.5rem;line-height:1}
- .card-gallery{grid-template-columns:1fr;gap:18px}.card-tile-head{align-items:flex-start;flex-direction:column;gap:6px}.card-image-button img{height:auto;max-height:610px;object-fit:contain}
- .tile-actions .btn{flex:1}.scrollhint{display:none}
-}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
-@media print{.topnav,.hero-actions,.tile-actions,.scrollhint,.footer,.modal,.toast{display:none!important}body{background:#fff}.hero{min-height:0;background:#fff;color:#341923;border:3px double #8a6a33}.hero-inner{display:block;padding:25px}.hero-copy{text-align:center}.hero .names,.hero-intro,.ganeshline{color:#4b1824}.hero-art{display:none}.section{padding:25px}.event-grid{grid-template-columns:repeat(3,1fr)}.event{box-shadow:none;break-inside:avoid}.cards-section{display:none}.family-card{box-shadow:none}}
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="theme-color" content="#45101f"/>
+  <meta name="description" content="A heartfelt royal wedding invitation for Amit Tiwari and Shivangi Tiwari."/>
+  <title>अमित संग शिवांगी | शुभ विवाह निमंत्रण</title>
 
-/* Premium modern polish */
-:root{--wine:#531522;--wine2:#7b2638;--gold:#d7b56d;--paper:#fffaf1;--ink:#3b2024}
-body{
- background:
-   radial-gradient(ellipse at 12% 8%,rgba(235,202,130,.32),transparent 30%),
-   radial-gradient(ellipse at 90% 28%,rgba(127,38,56,.10),transparent 26%),
-   linear-gradient(135deg,#fbf4e9 0%,#f0e4d1 45%,#fbf5e9 100%);
- background-attachment:fixed;
-}
-.topnav{
- backdrop-filter:blur(18px);
- background:rgba(67,17,31,.88)!important;
- border-bottom:1px solid rgba(230,201,139,.32);
- box-shadow:0 10px 30px rgba(55,18,27,.14);
-}
-.hero{
- position:relative;isolation:isolate;overflow:hidden;
- background:
-   radial-gradient(ellipse at 50% 0%,rgba(225,188,111,.24),transparent 46%),
-   linear-gradient(135deg,#4a1424 0%,#6b2032 48%,#35101c 100%)!important;
- box-shadow:inset 0 -1px rgba(255,255,255,.12),0 24px 70px rgba(55,18,27,.18);
-}
-.hero:before,.hero:after{
- content:"";position:absolute;z-index:-1;border:1px solid rgba(229,197,126,.24);
- border-radius:50%;pointer-events:none
-}
-.hero:before{width:540px;height:540px;right:-180px;top:-260px;box-shadow:0 0 0 24px rgba(229,197,126,.035),0 0 0 52px rgba(229,197,126,.025)}
-.hero:after{width:340px;height:340px;left:-170px;bottom:-200px;box-shadow:0 0 0 20px rgba(229,197,126,.04)}
-.hero-inner{position:relative;z-index:1}
-.hero .names,.hero h1{ text-shadow:0 4px 22px rgba(0,0,0,.18)}
-.hero .art-frame{
- transform:perspective(1100px) rotateY(-8deg) rotateX(3deg);
- border-radius:220px 220px 26px 26px;
- box-shadow:22px 28px 0 rgba(18,5,10,.14),0 35px 75px rgba(0,0,0,.3);
- transition:transform .5s cubic-bezier(.2,.75,.2,1),box-shadow .5s;
-}
-.hero .art-frame:hover{transform:perspective(1100px) rotateY(0) rotateX(0) translateY(-7px);box-shadow:12px 20px 0 rgba(18,5,10,.10),0 40px 85px rgba(0,0,0,.34)}
-.hero .float-tag{box-shadow:0 16px 35px rgba(20,5,10,.22);backdrop-filter:blur(12px)}
-.section{position:relative}
-.section-title{letter-spacing:.02em}
-.event{
- border-radius:22px!important;
- background:linear-gradient(150deg,rgba(255,253,247,.97),rgba(248,236,215,.97))!important;
- border:1px solid rgba(183,145,76,.42)!important;
- box-shadow:0 5px 0 rgba(142,101,44,.12),0 18px 34px rgba(68,25,35,.08)!important;
- transform:perspective(900px) translateZ(0);
- transition:transform .32s ease,box-shadow .32s ease;
-}
-.event:hover{transform:perspective(900px) translateY(-8px) rotateX(2deg);box-shadow:0 8px 0 rgba(142,101,44,.10),0 28px 48px rgba(68,25,35,.15)!important}
-.cards-section{
- background:
-  radial-gradient(ellipse at 15% 10%,rgba(220,188,119,.18),transparent 34%),
-  linear-gradient(145deg,#f3e9dc,#fffaf1 48%,#efe1d0)!important;
-}
-.card-gallery{gap:30px!important;perspective:1400px}
-.card-tile{
- position:relative;border-radius:24px!important;overflow:hidden;
- background:linear-gradient(145deg,#fffdf7,#f8edda)!important;
- border:1px solid rgba(179,139,65,.48)!important;
- box-shadow:0 7px 0 rgba(126,83,36,.10),0 22px 48px rgba(66,20,32,.12)!important;
- transition:transform .38s ease,box-shadow .38s ease;
-}
-.card-tile:nth-child(1){transform:rotateY(2deg) rotateX(1deg)}
-.card-tile:nth-child(2){transform:rotateY(-2deg) rotateX(1deg)}
-.card-tile:hover{transform:translateY(-9px) rotateY(0) rotateX(0)!important;box-shadow:0 10px 0 rgba(126,83,36,.08),0 32px 58px rgba(66,20,32,.19)!important}
-.card-tile-head{background:linear-gradient(100deg,rgba(255,251,240,.98),rgba(241,222,185,.55));padding:20px 22px!important}
-.card-tile-head h3{letter-spacing:.01em}
-.card-image-button{background:linear-gradient(145deg,#e6d0a0,#fff6df)!important;padding:16px!important}
-.card-image-button img{filter:drop-shadow(0 10px 13px rgba(66,30,25,.14));border-radius:5px!important;transition:transform .4s ease,filter .4s ease!important}
-.card-tile:hover .card-image-button img{transform:translateY(-3px) scale(1.015)!important;filter:drop-shadow(0 16px 18px rgba(66,30,25,.20))}
-.btn,.hero-actions a,.hero-actions button{
- transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
-}
-.btn:hover,.hero-actions a:hover,.hero-actions button:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(35,10,18,.16)}
-.family-card{border-radius:24px!important;box-shadow:0 6px 0 rgba(142,101,44,.07),0 22px 48px rgba(80,34,44,.09)!important}
-.footer{background:linear-gradient(135deg,#35101c,#6b2032)!important}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
-@media(max-width:900px){.hero .art-frame{transform:none}.card-tile:nth-child(n){transform:none}.card-tile:hover{transform:translateY(-4px)!important}}
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 
-
-/* Refined, reliable envelope-opening experience */
-body.invite-locked{overflow:hidden}
-.opening-screen{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;overflow-y:auto;padding:22px 16px;background:radial-gradient(ellipse at 50% 28%,#813246 0%,#4b1022 52%,#200710 100%);opacity:1;visibility:visible;transition:opacity .8s ease,visibility .8s ease;isolation:isolate}
-.opening-screen:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 50% 45%,rgba(247,202,112,.18),transparent 34%),linear-gradient(135deg,rgba(255,255,255,.035),transparent 45%,rgba(0,0,0,.2));pointer-events:none}
-.opening-screen::after{content:"✦  ❋  ✦";position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:#e8c77e;letter-spacing:.8rem;font-size:20px;opacity:.5;pointer-events:none;animation:ornamentFloat 5s ease-in-out infinite}
-.opening-screen.is-open{opacity:0;visibility:hidden;pointer-events:none}
-.opening-content{width:min(440px,100%);flex:0 0 auto;text-align:center;color:#fff8e9;perspective:1200px;position:relative;padding:18px 14px 34px;text-shadow:0 2px 14px rgba(0,0,0,.35);margin:auto}
-.opening-blessing{font-family:'Noto Serif Devanagari','Nirmala UI',serif;font-size:clamp(19px,3vw,24px);font-weight:700;letter-spacing:.025em;color:#fff0bd;margin:0 0 18px;text-shadow:0 2px 5px rgba(0,0,0,.45),0 0 20px rgba(255,205,105,.42)}
-.envelope-scene{cursor:pointer;outline:none;transition:filter .3s ease; height:280px;position:relative;perspective:1400px;filter:drop-shadow(0 22px 28px rgba(0,0,0,.42));margin:0 auto 22px;width:min(370px,86vw);isolation:isolate;transform:translateZ(0);overflow:visible}
-.envelope-scene:hover{filter:drop-shadow(0 0 18px rgba(245,207,120,.22))}.envelope-scene:focus-visible{outline:2px solid #ffe6a6;outline-offset:8px;border-radius:14px}.envelope-letter .mini-om{font-size:clamp(12px,2.7vw,17px);white-space:nowrap}.envelope-letter .letter-couple{font-family:var(--serif);font-size:clamp(15px,3.4vw,20px);color:#5a1425}.envelope-letter .letter-couple em{color:#b58a3d;font-style:italic}.envelope-letter .letter-date{font-size:11px;letter-spacing:.04em}.envelope-letter .letter-open-hint{margin-top:8px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#8c672b}.envelope-back{position:absolute;left:0;right:0;top:42px;bottom:0;background:linear-gradient(135deg,#fff0c9,#d5a84e);border-radius:12px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.7),0 14px 30px rgba(0,0,0,.18);z-index:0}
-.envelope-letter{position:absolute;left:8%;right:8%;bottom:-18px;height:166px;box-sizing:border-box;background:linear-gradient(145deg,#fffdf6,#f4dfb6);border:2px solid #d6b36b;border-radius:8px;color:#5a1425;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;transition:transform 1.05s cubic-bezier(.22,.78,.2,1),bottom 1.05s cubic-bezier(.22,.78,.2,1);box-shadow:0 3px 15px #56222b22;z-index:1;text-shadow:none}
-.envelope-letter .mini-om{font-family:'Noto Serif Devanagari','Nirmala UI',serif;font-size:25px;color:#b58a3d}.envelope-letter strong{font-family:var(--serif);font-size:clamp(22px,5vw,29px);font-weight:700;margin:5px 0}.envelope-letter span{font-size:13px;letter-spacing:.045em}
-.envelope-front{position:absolute;left:0;right:0;top:42px;bottom:0;overflow:hidden;border-radius:13px;background:linear-gradient(145deg,#92283d,#581321 75%);clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%);border:1px solid #e6c778;z-index:3;pointer-events:none;box-shadow:inset 0 0 0 2px rgba(255,224,155,.12)}
-.envelope-flap{position:absolute;left:0;right:0;top:42px;height:140px;background:linear-gradient(160deg,#fff3cb 0%,#e4c074 55%,#bd8b35 100%);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:50% 0;transform:rotateX(0deg);transform-style:preserve-3d;backface-visibility:visible;transition:transform 1s cubic-bezier(.2,.75,.25,1);z-index:5;filter:drop-shadow(0 4px 4px #300b1533);pointer-events:none}
-.envelope-seal{position:absolute;z-index:6;left:50%;top:132px;transform:translateX(-50%);width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#fff0c4,#c79a49 70%);color:#69172a;font-size:23px;border:2px solid #f9e5ac;box-shadow:0 4px 12px #26091255;transition:opacity .28s ease,transform .35s ease;text-shadow:none}
-.opening-screen.opening .envelope-flap{transform:rotateX(180deg);z-index:2}
-.opening-screen.opening .envelope-seal{opacity:0;transform:translateX(-50%) scale(.55)}
-.opening-screen.opening .envelope-letter{transform:translateY(-128px) scale(1.035);bottom:28px;z-index:4;box-shadow:0 18px 38px rgba(0,0,0,.25)}
-.opening-title{font-family:var(--serif);font-size:clamp(27px,5.5vw,38px);font-weight:700;line-height:1.25;margin:0 0 5px;color:#fff3d2;text-shadow:0 3px 18px #16050a75}.opening-subtitle{margin:0 0 17px;color:#ffe9bf;font-size:14px;text-shadow:0 2px 12px rgba(0,0,0,.45)}
-.open-invite-btn{border:1px solid #ffe6a8;border-radius:999px;background:linear-gradient(135deg,#fff0c6,#d9b46c);color:#4b1420;padding:13px 25px;font-weight:800;font-size:15px;box-shadow:0 10px 26px #16050a55;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease}.open-invite-btn:hover{transform:translateY(-3px);box-shadow:0 15px 32px #16050a66}.open-invite-btn:focus-visible{outline:3px solid white;outline-offset:4px}.open-invite-btn:disabled{cursor:wait;opacity:.9}
-@keyframes ornamentFloat{0%,100%{opacity:.35;letter-spacing:.8rem}50%{opacity:.8;letter-spacing:1rem}}
-@media(max-width:480px){.opening-screen{padding:14px 12px}.opening-content{padding:12px 6px 30px}.envelope-scene{height:245px;width:min(320px,86vw)}.envelope-back,.envelope-front{top:36px}.envelope-flap{top:36px;height:122px}.envelope-letter{height:148px;bottom:-14px}.envelope-seal{top:112px}.opening-screen.opening .envelope-letter{transform:translateY(-104px) scale(1.025);bottom:24px}}
-@media(max-height:650px){.opening-screen{align-items:flex-start}.opening-content{margin:auto}.opening-blessing{margin-bottom:10px}.envelope-scene{height:220px;margin-bottom:12px}.envelope-back,.envelope-front{top:30px}.envelope-flap{top:30px;height:105px}.envelope-letter{height:132px;bottom:-12px}.envelope-seal{top:96px}.opening-title{font-size:27px}.opening-subtitle{margin-bottom:12px}.opening-screen.opening .envelope-letter{transform:translateY(-88px) scale(1.02);bottom:20px}}
-@media(prefers-reduced-motion:reduce){.opening-screen,.envelope-flap,.envelope-letter,.envelope-seal,.open-invite-btn{transition:none!important;animation:none!important}}
-
-
-/* Refined couple-name styling */
-.names { font-family: 'Playfair Display', Georgia, serif; letter-spacing: .01em; line-height: 1.25; }
-.names .amp {
-  display: inline-flex; align-items: center; gap: .45em; margin: 0 .16em;
-  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
-  font-size: .62em; font-style: italic; font-weight: 700; letter-spacing: .16em;
-  text-transform: uppercase; color: #f3d58f; vertical-align: .22em;
-  text-shadow: 0 1px 0 rgba(65,27,18,.65), 0 0 16px rgba(229,187,103,.32);
-  white-space: nowrap;
-}
-.names .amp::before, .names .amp::after {
-  content: '✦'; display: inline-block; font-size: .68em; color: #d7ad5b;
-  text-shadow: 0 0 8px rgba(239,204,133,.35);
-}
-.section-heading .amp { display:inline-block; font-family:'Cormorant Garamond','Playfair Display',Georgia,serif; font-style:italic; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#b88b42; padding:0 .25em; }
-.hero-heading h2 { line-height: 1.25; }
-
-.poster-showcase{position:relative;isolation:isolate;overflow:hidden;padding:76px 20px 88px;text-align:center;background:radial-gradient(ellipse at 50% 28%,rgba(255,218,130,.22),transparent 42%),radial-gradient(circle at 12% 70%,rgba(199,112,70,.16),transparent 26%),linear-gradient(145deg,#210910,#48111e 48%,#260a12);color:#fff2d5}
-.poster-showcase:before,.poster-showcase:after{content:"✧  ✦  ✧  ✦  ✧";position:absolute;z-index:-1;color:rgba(246,205,119,.24);font-size:clamp(28px,5vw,60px);letter-spacing:.6em;white-space:nowrap;animation:posterDrift 16s ease-in-out infinite alternate}
-.poster-showcase:before{top:12%;left:-8%;transform:rotate(-18deg)}.poster-showcase:after{bottom:10%;right:-9%;transform:rotate(18deg);animation-delay:-7s}
-.poster-glow{position:absolute;z-index:-1;left:50%;top:45%;width:min(82vw,800px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,197,83,.17),rgba(255,197,83,.045) 42%,transparent 70%);filter:blur(18px);animation:posterPulse 5s ease-in-out infinite}
-.poster-heading{margin:0 auto 28px;position:relative}.poster-heading>span{font:11px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:#f0cc82}.poster-heading h2{margin:14px 0 7px;font-family:Georgia,'Times New Roman',serif;font-weight:500;font-size:clamp(2rem,5vw,3.6rem);letter-spacing:.015em;color:#fff2d5;text-shadow:0 0 22px rgba(255,201,100,.25)}.poster-heading h2 em{font-style:italic;color:#e6bd6e}.poster-heading p{margin:0;color:#e6cda1;font:12px var(--sans);letter-spacing:.24em;text-transform:uppercase}
-.poster-frame{position:relative;width:min(100%,560px);margin:0 auto;padding:10px;border:1px solid rgba(242,203,125,.8);border-radius:8px;background:linear-gradient(135deg,#f9e5ae,#8c5a2d 22%,#f6d98f 45%,#6c3b23 70%,#f4d58c);box-shadow:0 0 0 1px rgba(255,237,190,.22),0 0 30px rgba(255,186,68,.2),0 28px 65px rgba(0,0,0,.5);transform:perspective(1200px) rotateX(1deg);transition:transform .55s ease,box-shadow .55s ease}.poster-frame:hover{transform:perspective(1200px) rotateX(0) translateY(-7px) rotateY(-1deg);box-shadow:0 0 0 1px rgba(255,237,190,.3),0 0 48px rgba(255,186,68,.32),0 36px 75px rgba(0,0,0,.55)}.poster-frame img{display:block;width:100%;height:auto;border-radius:3px}.poster-frame figcaption{padding:15px 8px 8px;color:#4b1820;background:#fff4da;font:italic 14px Georgia,serif;letter-spacing:.02em}
-@keyframes posterPulse{0%,100%{opacity:.65;transform:translate(-50%,-50%) scale(.96)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.05)}}@keyframes posterDrift{from{translate:0 -8px;opacity:.5}to{translate:18px 12px;opacity:1}}
-@media(max-width:600px){.poster-showcase{padding:54px 14px 64px}.poster-frame{padding:6px}.poster-heading>span{letter-spacing:.18em;font-size:10px}.poster-heading p{letter-spacing:.14em}}
-@media(prefers-reduced-motion:reduce){.poster-glow,.poster-showcase:before,.poster-showcase:after{animation:none}.poster-frame{transition:none}}
-
-/* Poster-first hero: replaces the previous text-and-card split hero. */
-.poster-hero{min-height:unset;padding:0;background:radial-gradient(ellipse at 50% 20%,#8c4a34 0%,#541522 42%,#220912 100%);overflow:hidden;isolation:isolate}
-.poster-hero:before,.poster-hero:after{z-index:-1;opacity:.85}
-.poster-hero-glow{position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at 12% 20%,rgba(255,213,130,.22),transparent 22%),radial-gradient(circle at 88% 38%,rgba(255,202,109,.20),transparent 23%),repeating-radial-gradient(circle at 50% 40%,transparent 0 38px,rgba(241,202,123,.045) 39px 40px);animation:posterGlow 9s ease-in-out infinite alternate}
-.poster-hero-inner{position:relative;max-width:1160px;margin:0 auto;padding:48px 24px 76px;display:flex;flex-direction:column;align-items:center;gap:28px;text-align:center}
-.poster-hero-copy{position:relative;z-index:2;color:#fff4d9;text-shadow:0 2px 22px #17050b80}
-.poster-kicker{font:600 .76rem var(--sans);letter-spacing:.28em;color:#f4d796;margin:0 0 15px;text-transform:uppercase}
-.poster-hero h1{font-family:Georgia,'Times New Roman',serif;font-weight:500;font-size:clamp(2.4rem,6vw,5rem);line-height:1.1;letter-spacing:-.035em;margin:0;color:#fff0cf}
-.poster-hero h1 em{font-weight:400;font-style:italic;color:#e7bd6c;text-shadow:0 0 24px #e4b45c55}
-.poster-date{display:flex;justify-content:center;align-items:center;gap:13px;margin-top:18px;color:#f4d99b;font:600 .85rem var(--sans);letter-spacing:.22em}
-.poster-date span{color:#e4b963;font-size:1.1rem}
-.poster-hero-rule{display:flex;align-items:center;justify-content:center;gap:13px;color:#e8c477;font-size:1.1rem;margin:17px 0 22px}
-.poster-hero-rule span{width:60px;height:1px;background:linear-gradient(90deg,transparent,#e8c477)}
-.poster-hero-rule span:last-child{transform:rotate(180deg)}
-.poster-hero-frame{width:min(100%,560px);margin:0;padding:10px;border-radius:14px;border:1px solid #edcd83;background:linear-gradient(145deg,#fff1c8,#a87535 26%,#f6dfa1 52%,#875020);box-shadow:0 2px 0 #fff0c4,0 0 0 5px #d3a85a22,0 0 35px #ffd37a55,0 28px 75px #100308a6;transform:perspective(1200px) rotateX(1.4deg);transition:transform .5s,box-shadow .5s;animation:posterRise .9s cubic-bezier(.2,.75,.2,1) both}
-.poster-hero-frame:hover{transform:perspective(1200px) rotateX(0) translateY(-5px);box-shadow:0 2px 0 #fff0c4,0 0 0 5px #d3a85a22,0 0 48px #ffd37a77,0 38px 90px #100308b8}
-.poster-hero-frame img{display:block;width:100%;height:auto;border-radius:7px}
-.poster-hero-frame figcaption{padding:13px 8px 5px;color:#fff0cc;font:italic .94rem Georgia,serif;letter-spacing:.025em}
-.poster-hero .scrollhint{bottom:17px}
-@keyframes posterGlow{from{opacity:.65;transform:scale(1)}to{opacity:1;transform:scale(1.035)}}
-@keyframes posterRise{from{opacity:0;transform:perspective(1200px) translateY(25px) rotateX(4deg)}to{opacity:1;transform:perspective(1200px) translateY(0) rotateX(1.4deg)}}
-@media(max-width:600px){.poster-hero-inner{padding:38px 16px 66px;gap:22px}.poster-kicker{font-size:.66rem;letter-spacing:.18em}.poster-hero h1{font-size:clamp(2.25rem,10vw,3.5rem)}.poster-date{font-size:.72rem;letter-spacing:.13em;gap:8px}.poster-hero-frame{padding:6px;border-radius:10px}.poster-hero-frame figcaption{font-size:.85rem}.poster-hero .scrollhint{font-size:9px}}
-@media(prefers-reduced-motion:reduce){.poster-hero-glow,.poster-hero-frame{animation:none;transition:none}}
-
-
-.shubh-section{position:relative;overflow:hidden;text-align:center;background:radial-gradient(ellipse at center,rgba(255,220,130,.13),transparent 58%),linear-gradient(135deg,#26060d,#4b101d 52%,#21050b);border-top:1px solid rgba(226,184,92,.35);border-bottom:1px solid rgba(226,184,92,.35)}
-.shubh-section:before,.shubh-section:after{content:"✧  ✦  ❋  ✦  ✧";position:absolute;left:0;right:0;color:rgba(230,190,104,.22);font-size:clamp(1.2rem,4vw,2.4rem);letter-spacing:.65em;pointer-events:none}.shubh-section:before{top:18px}.shubh-section:after{bottom:18px}
-.shubh-inner{padding-top:clamp(56px,8vw,90px);padding-bottom:clamp(56px,8vw,90px);position:relative;z-index:1}.shubh-ornament{color:#e5bd68;letter-spacing:.35em;font-size:1.1rem;text-shadow:0 0 18px rgba(255,205,105,.5)}.shubh-mantra{font-family:'Noto Serif Devanagari','Noto Serif',serif;color:#ffe8ae;font-size:clamp(1.5rem,4vw,2.4rem);margin:18px 0;text-shadow:0 0 22px rgba(255,203,102,.22)}.shubh-divider{display:flex;align-items:center;justify-content:center;gap:16px;color:#e5bd68;margin:20px auto;max-width:300px}.shubh-divider span{height:1px;flex:1;background:linear-gradient(90deg,transparent,#d8ad58,transparent)}.shubh-verse{font-family:'Noto Serif Devanagari','Noto Serif',serif;color:#fff4db;line-height:2;font-size:clamp(1.05rem,2.5vw,1.45rem);margin:18px auto;max-width:760px}.shubh-blessing{color:#e9c979;font-family:'Noto Serif Devanagari','Noto Serif',serif;letter-spacing:.06em;margin:22px 0 0;font-size:clamp(1rem,2.5vw,1.25rem)}
-
-.hindi-welcome{padding:46px 20px 40px;text-align:center;background:radial-gradient(ellipse at 50% 0%,#fff7e4 0%,#f7ecdc 58%,#f1e0cd 100%);color:#531728}
-.hindi-welcome-inner{max-width:850px;margin:0 auto;padding:28px 24px;border:1px solid #c5a15b;outline:1px solid #c5a15b;outline-offset:5px;border-radius:4px;box-shadow:0 12px 35px #5a182014}
-.hindi-welcome .hindi-ganesh{font-family:'Noto Serif Devanagari','Nirmala UI',serif;color:#9a6b20;font-size:1.2rem;margin:0 0 12px}
-.hindi-welcome h2{font-family:'Noto Serif Devanagari','Nirmala UI',serif;font-size:clamp(1.45rem,3vw,2rem);font-weight:600;margin:0 0 14px;color:#6b1b2b}
-.hindi-welcome p:last-child{font-family:'Noto Serif Devanagari','Nirmala UI',serif;line-height:2;font-size:1.06rem;margin:0 auto;max-width:760px}
-@media(max-width:600px){.hindi-welcome{padding:34px 16px}.hindi-welcome-inner{padding:22px 16px}.hindi-welcome p:last-child{font-size:.98rem}}
-
-.event-hindi-title{font-family:'Noto Serif Devanagari','Nirmala UI',serif;color:#8c6527;font-size:1rem;margin:.35rem 0 .6rem}
-
-/* Ornate celebration poster and jewel-toned event cards */
-.celebration-poster-wrap{position:relative;max-width:1100px;margin:34px auto 42px;padding:10px;border-radius:28px;background:linear-gradient(135deg,#f8d98b,#7b2630 28%,#e6b85d 52%,#4b101e 75%,#f5d88b);box-shadow:0 0 0 1px rgba(255,224,145,.65),0 18px 55px rgba(0,0,0,.35),0 0 38px rgba(232,177,69,.28);isolation:isolate}
-.celebration-poster-wrap:before{content:"";position:absolute;inset:-12px;border-radius:34px;border:1px solid rgba(255,220,140,.45);box-shadow:0 0 30px rgba(255,196,75,.18);z-index:-1;pointer-events:none}
-.celebration-poster-art{display:block;width:100%;height:auto;border-radius:20px;box-shadow:inset 0 0 0 1px #f9e7bb}
-.events-section{position:relative;overflow:hidden;background-image:radial-gradient(ellipse at 8% 25%,rgba(218,164,70,.13),transparent 28%),radial-gradient(ellipse at 92% 70%,rgba(170,42,57,.15),transparent 30%)}
-.events-section:before,.events-section:after{content:"✦  ❋  ✦";position:absolute;color:rgba(224,181,96,.20);font-size:clamp(2rem,5vw,4.5rem);letter-spacing:.4em;pointer-events:none;writing-mode:vertical-rl;top:18%;left:1%;text-shadow:0 0 20px rgba(236,190,96,.15)}
-.events-section:after{left:auto;right:1%;top:42%;transform:rotate(180deg)}
-.event-grid{gap:clamp(18px,2.4vw,30px)}
-.event{position:relative;overflow:hidden;border:1px solid rgba(224,183,104,.7)!important;border-radius:22px!important;background:linear-gradient(155deg,rgba(255,249,226,.98),rgba(250,220,181,.96) 48%,rgba(255,242,218,.98))!important;box-shadow:0 12px 28px rgba(39,7,13,.23),inset 0 0 0 4px rgba(255,255,255,.42),inset 0 0 0 6px rgba(190,127,48,.12)!important;color:#4b1420!important;transition:transform .35s ease,box-shadow .35s ease}
-.event:nth-child(2){background:linear-gradient(155deg,rgba(255,238,226,.98),rgba(246,203,191,.96) 48%,rgba(255,246,232,.98))!important}
-.event:nth-child(3){background:linear-gradient(155deg,rgba(250,248,215,.98),rgba(231,226,173,.96) 48%,rgba(255,249,222,.98))!important}
-.event:before{content:"";position:absolute;inset:8px;border:1px solid rgba(178,116,43,.34);border-radius:15px;pointer-events:none}
-.event:after{content:"✧";position:absolute;right:16px;bottom:8px;font-size:2.5rem;color:rgba(177,117,43,.2);pointer-events:none}
-.event:hover{transform:translateY(-8px) rotateX(1deg);box-shadow:0 22px 42px rgba(26,5,10,.32),0 0 28px rgba(222,174,83,.20),inset 0 0 0 4px rgba(255,255,255,.45)!important}
-.event-number{background:linear-gradient(145deg,#8e1f2c,#4c0d19)!important;color:#ffe6a0!important;border:1px solid #d7ad59;box-shadow:0 4px 14px rgba(98,19,30,.25)}
-.event-day{color:#fff0c5!important;background:linear-gradient(90deg,#5a101e,#8b2530,#5a101e)!important;border:1px solid #d7ad59;border-radius:999px;padding:5px 14px;letter-spacing:.12em}
-.event h3{color:#581522!important;text-shadow:0 1px rgba(255,255,255,.55)}
-.event p{color:#65414a!important}
-.event-date{background:rgba(231,186,111,.22)!important;border:1px solid rgba(190,135,63,.35);border-radius:12px;color:#721b29!important;padding:10px 12px}
-.event-date svg{color:#8b2632}
-@media(max-width:700px){.celebration-poster-wrap{margin:22px 4px 30px;padding:6px;border-radius:18px}.celebration-poster-art{border-radius:13px}.events-section:before,.events-section:after{opacity:.35}.event{border-radius:17px!important}}
-
-/* Couple section: refined, colourful keepsake cards */
-.family-section{position:relative;overflow:hidden;background:radial-gradient(ellipse at 8% 18%,rgba(222,177,95,.16),transparent 34%),radial-gradient(ellipse at 92% 78%,rgba(151,49,65,.12),transparent 32%),linear-gradient(180deg,#fff9ef 0%,#f8eee1 100%)}
-.family-section:before,.family-section:after{content:"✦  ❋  ✦";position:absolute;color:rgba(174,126,54,.18);font-size:clamp(2rem,5vw,4rem);letter-spacing:.35em;pointer-events:none}
-.family-section:before{top:70px;left:-18px;transform:rotate(-18deg)}
-.family-section:after{right:-18px;bottom:70px;transform:rotate(18deg)}
-.family-section .section-inner{position:relative;z-index:1}
-.family-section .section-heading h2{color:#591827;text-shadow:0 2px 0 rgba(255,255,255,.8)}
-.family-section .section-heading .overline{color:#a77a37;letter-spacing:.2em}
-.family-card{position:relative;max-width:1040px;margin:0 auto;background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(255,248,233,.96));border:1px solid #dfc28a;border-radius:28px;padding:clamp(18px,3.2vw,34px);box-shadow:0 22px 55px rgba(73,22,35,.12),inset 0 0 0 5px rgba(217,180,108,.10),inset 0 0 0 7px rgba(255,255,255,.8);overflow:hidden}
-.family-card:before{content:"";position:absolute;inset:9px;border:1px solid rgba(190,146,73,.35);border-radius:21px;pointer-events:none}
-.family-names{position:relative;z-index:1;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:clamp(12px,2vw,24px)}
-.person{position:relative;height:100%;min-width:0;padding:26px 20px 24px;border-radius:21px;border:1px solid rgba(185,137,64,.45);box-shadow:0 12px 25px rgba(71,24,36,.08),inset 0 1px 0 rgba(255,255,255,.9);overflow:hidden;transition:transform .28s ease,box-shadow .28s ease}
-.person:hover{transform:translateY(-5px);box-shadow:0 18px 32px rgba(71,24,36,.15),inset 0 1px 0 rgba(255,255,255,.9)}
-.person-vivek{background:radial-gradient(circle at 50% 0,rgba(255,255,255,.85),transparent 45%),linear-gradient(150deg,#fff5d9,#f7e4b7 55%,#fff9eb)}
-.person-prachi{background:radial-gradient(circle at 50% 0,rgba(255,255,255,.9),transparent 45%),linear-gradient(150deg,#fff0ef,#f3d9d7 58%,#fff7ef)}
-.person-role{display:inline-block;font:600 .65rem var(--sans);letter-spacing:.22em;color:#98703a;border:1px solid rgba(171,126,57,.38);background:rgba(255,255,255,.55);border-radius:999px;padding:7px 12px;margin-bottom:12px}
-.person-emblem{width:44px;height:44px;margin:0 auto 10px;display:grid;place-items:center;border-radius:50%;font-size:1.25rem;color:#8d6027;background:linear-gradient(145deg,#fff9e8,#e8c77f);border:1px solid rgba(169,120,46,.55);box-shadow:0 5px 13px rgba(123,76,28,.13)}
-.person-prachi .person-emblem{color:#9a3c4a;background:linear-gradient(145deg,#fff6f2,#e8b5b9);border-color:rgba(154,60,74,.35)}
-.person h3{font-size:clamp(1.55rem,2.5vw,2rem);margin:0 0 13px;color:#541727}
-.person p{color:#6e5354;font-size:.91rem;line-height:1.95;overflow-wrap:anywhere}
-.ornament{align-self:center;text-shadow:0 0 18px rgba(207,162,80,.45);font-size:2.3rem}
-.family-separator{position:relative;z-index:1;margin:28px 0;background:linear-gradient(90deg,transparent,#d6b36d 20%,#9b5260 50%,#d6b36d 80%,transparent)}
-.request-text{position:relative;z-index:1;max-width:780px;padding:20px 24px;border-radius:17px;background:rgba(255,255,255,.63);border:1px solid rgba(199,163,99,.35);box-shadow:0 8px 20px rgba(71,24,36,.045);font-size:.98rem}
-.request-text strong{color:#7c2636}
-@media(max-width:700px){.family-names{grid-template-columns:1fr;gap:15px}.ornament{line-height:1;margin:0}.person{padding:23px 17px}.family-card{padding:18px}.request-text{padding:17px 15px}.family-section:before{top:35px}.family-section:after{bottom:35px}}
-@media(prefers-reduced-motion:reduce){.person{transition:none}.person:hover{transform:none}}
-
-</style>
-<style id="english-type-polish">
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap');
-:root { --english-serif: 'Playfair Display','Cormorant Garamond',Georgia,serif; }
-body { font-family:'DM Sans',Arial,sans-serif; letter-spacing:.01em; }
-h1,h2,h3,.hero-title,.couple-names,.section-title { font-family:var(--english-serif); letter-spacing:.015em; }
-button,a { -webkit-tap-highlight-color:transparent; }
-button { letter-spacing:.025em; }
-.en-kicker { text-transform:uppercase; letter-spacing:.22em; }
-</style>
-<style id="couple-photo-style">
-.couple-photo-section{padding:72px 22px 78px;background:radial-gradient(ellipse at top,#fff7e7 0%,#f7e9e5 48%,#efe0cf 100%);position:relative;overflow:hidden;text-align:center}
-.couple-photo-section:before,.couple-photo-section:after{content:"✦  ❋  ✦";position:absolute;color:#b98a43;opacity:.28;font-size:36px;letter-spacing:18px;pointer-events:none}
-.couple-photo-section:before{top:22px;left:2%}.couple-photo-section:after{bottom:22px;right:2%}
-.couple-photo-wrap{width:min(430px,92vw);margin:28px auto 0;padding:12px;border-radius:230px 230px 22px 22px;background:linear-gradient(145deg,#fff3cd,#b88942 32%,#f8e4ac 55%,#8d5b27);box-shadow:0 8px 0 #8a5b2c22,0 28px 60px #51232b2b;transform:perspective(1100px) rotateY(-2deg);transition:transform .5s,box-shadow .5s}
-.couple-photo-wrap:hover{transform:perspective(1100px) rotateY(0) translateY(-5px);box-shadow:0 10px 0 #8a5b2c22,0 36px 70px #51232b35}
-.couple-photo-wrap img{display:block;width:100%;height:auto;max-height:760px;object-fit:cover;object-position:center;border:3px solid #fff8e9;border-radius:220px 220px 14px 14px}
-.couple-photo-caption{font-family:var(--english-serif,Georgia,serif);font-size:clamp(25px,4vw,36px);color:#5b1a2a;margin:26px 0 8px}.couple-photo-sub{color:#84616a;margin:0;letter-spacing:.04em}
-@media(max-width:600px){.couple-photo-section{padding:58px 16px}.couple-photo-wrap{width:min(360px,94vw);padding:8px}.couple-photo-wrap img{max-height:680px}}
-@media(prefers-reduced-motion:reduce){.couple-photo-wrap{transition:none}}
-</style>
-
-<style id="hindi-hero-refinements">
-/* Hindi-first invitation hero refinements */
-.hindi-invitation-copy{max-width:600px;text-align:center;margin-inline:auto}
-.hindi-invitation-copy .poster-kicker{font-family:'Noto Serif Devanagari','Nirmala UI',serif;font-size:clamp(1.15rem,2.1vw,1.55rem);letter-spacing:.02em;color:#ffe4a0;text-shadow:0 0 18px #e8bd664d}
-.hindi-invitation-copy h1{font-family:'Noto Serif Devanagari','Nirmala UI',serif;font-size:clamp(2.2rem,4.8vw,3.7rem);line-height:1.35;margin:16px 0;color:#fff3d1}
-.hindi-invitation-copy h1 em{font-style:normal;color:#f0ca78;text-shadow:0 0 22px #e6b84d66}
-.hero-hindi-intro{font-family:'Noto Serif Devanagari','Nirmala UI',serif;font-size:clamp(1rem,1.5vw,1.18rem);line-height:2;color:#fff4e4;margin:14px auto;max-width:590px}
-.hero-hindi-event{font-family:'Noto Serif Devanagari','Nirmala UI',serif;color:#ffe2a0;font-size:clamp(1.15rem,2vw,1.5rem);font-weight:700;line-height:1.9;margin-top:20px;text-shadow:0 0 18px #dca94c40}
-.hero-hindi-date,.hero-hindi-subtitle{font-family:'Noto Serif Devanagari','Nirmala UI',serif;color:#fff1cf;font-size:1.04rem;line-height:1.9;margin-top:5px}
-.hero-hindi-subtitle{font-size:1.35rem;color:#f3d18a;margin-top:14px}
-.hero-hindi-wedding{margin-top:4px}
-@media(max-width:700px){.hindi-invitation-copy{padding-inline:4px}.hero-hindi-intro{line-height:1.9}.hero-hindi-event{margin-top:15px}.hindi-invitation-copy h1{margin:10px 0}}
-
-.hero-top-ganesh{font-family:'Noto Serif Devanagari','Nirmala UI',serif;color:#ffe6a6;font-size:clamp(1.05rem,1.8vw,1.35rem);letter-spacing:.03em;text-align:center;margin:0 auto 20px;text-shadow:0 0 18px #efc45d88;position:relative;z-index:2}
-</style>
-
-
-<style>
-.venue-map-section{position:relative;padding:76px 20px 86px;background:radial-gradient(ellipse at 50% 0%,#7c3147 0%,#4b1428 48%,#270a17 100%);text-align:center;color:#fff2d9;overflow:hidden}.venue-map-section:before,.venue-map-section:after{content:'❀';position:absolute;font-size:180px;color:#d7a85d;opacity:.085;top:5%;pointer-events:none}.venue-map-section:before{left:-45px}.venue-map-section:after{right:-45px}.venue-map-inner{position:relative;max-width:760px;margin:auto;border:1px solid rgba(237,191,107,.55);border-radius:24px;padding:42px 24px;background:linear-gradient(140deg,rgba(255,236,197,.10),rgba(255,255,255,.025));box-shadow:0 18px 65px #15040b77,inset 0 0 35px #e2a95012}.venue-map-ornament{color:#e9bc73;letter-spacing:14px;font-size:20px}.venue-map-kicker{font-size:12px;letter-spacing:3px;color:#e9c589;margin:18px 0 8px}.venue-map-inner h2{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3.2rem);color:#fff0cc;margin:8px 0 12px}.venue-map-inner p:not(.venue-map-kicker){line-height:1.8;color:#f7e6d9}.venue-map-button{display:inline-block;margin:24px auto 26px;padding:15px 26px;border-radius:40px;background:linear-gradient(120deg,#fff0c4,#dbab5e);color:#4d1626!important;text-decoration:none;font-weight:750;box-shadow:0 8px 30px #dcae5e44;transition:transform .25s,box-shadow .25s}.venue-map-button:hover{transform:translateY(-3px);box-shadow:0 12px 38px #e9b96880}@media(max-width:600px){.venue-map-section{padding:48px 14px}.venue-map-inner{padding:32px 16px}}
-</style>
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css"/>
 </head>
+
 <body class="invite-locked">
-<div aria-label="विवाह Open Invitation" aria-modal="true" class="opening-screen" id="openingScreen" role="dialog">
-<div class="opening-content">
-<div class="opening-blessing" lang="hi">॥ श्री गणेशाय नमः ॥</div>
-<div aria-label="Open the wedding invitation" class="envelope-scene" id="envelopeOpenCard" role="button" tabindex="0">
-<div class="envelope-back"></div>
-<div class="envelope-letter"><div class="mini-om">॥ श्री गणेशाय नमः ॥</div><strong>Wedding Invitation</strong><span class="letter-couple">Amit <em>Weds</em> Shivangi</span><span class="letter-date">1–5 December 2026</span><span class="letter-open-hint">✦ Tap to open ✦</span></div>
-<div class="envelope-front"></div><div class="envelope-flap"></div><div class="envelope-seal">❋</div>
-</div>
-<h1 class="opening-title">The Wedding</h1>
-<p class="opening-subtitle">A heartfelt invitation, made with love</p>
-<button class="open-invite-btn" id="openInviteButton" type="button">Open Invitation <span aria-hidden="true">✧</span></button>
-</div>
-</div>
-<a class="skip" href="#main">Skip to main content</a>
-<nav aria-label="Main Navigation" class="topnav">
-<div class="navinner">
-<a aria-label="Home" class="brand" href="#home">
-<span class="brandmark">ॐ</span><span class="brandtext">Wedding Invitation<small>Amit Weds Shivangi</small></span>
-</a>
-<div class="navlinks"><a href="#our-moment">Our Moment</a><a href="#karyakram">Celebrations</a><a href="#parivar">The Couple</a><a href="#cards">Invitation Cards</a></div>
-<div class="navtools">
-<button aria-label="Play Ganesh mantra" aria-pressed="false" class="iconbtn" id="mantraToggle" onclick="toggleMantra()" title="Play Ganesh mantra" type="button">♫</button>
-<button aria-label="निमंत्रण Share" class="iconbtn" onclick="shareInvite()" title="Share" type="button"><svg fill="none" height="18" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24" width="18"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="m8.7 10.7 6.6-4M8.7 13.3l6.6 4"></path></svg></button>
-<button aria-label="Print" class="iconbtn" onclick="window.print()" title="Print" type="button"><svg fill="none" height="18" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24" width="18"><path d="M7 8V3h10v5M7 17H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-3"></path><path d="M7 14h10v7H7zM18 11h.01"></path></svg></button>
-</div>
-</div>
-</nav>
-<audio id="ganeshMantra" loop preload="none">
-<source src="Vakratunda Mahakaya वकरतड महकय  Ganesh Mantra %23god %23bhakti.mp3" type="audio/mpeg"/>
-</audio>
-<header class="hero poster-hero" id="home">
-  <div class="poster-hero-glow" aria-hidden="true"></div>
-  <div class="poster-hero-inner">
-    <p class="hero-top-ganesh" lang="hi">॥ श्री गणेशाय नमः ॥</p>
-    <div class="poster-hero-copy">
-      <div class="poster-kicker">✦ A KEEPSAKE OF OUR LOVE ✦</div>
-      <h1>Amit <em>Weds</em> Shivangi</h1>
-      <div class="poster-date"><span aria-hidden="true">✧</span> 1–5 DECEMBER 2026 <span aria-hidden="true">✧</span></div>
+
+  <!-- Floating Falling Petals Overlay -->
+  <canvas id="petalsCanvas" aria-hidden="true"></canvas>
+
+  <!-- Interactive 3D Envelope Opening Screen -->
+  <div class="opening-screen" id="openingScreen" role="dialog" aria-modal="true" aria-label="शुभ विवाह निमंत्रण पत्र">
+    <div class="opening-content">
+      <div class="opening-blessing">॥ श्री गणेशाय नमः ॥</div>
+      <div class="envelope-scene" id="envelopeOpenCard" role="button" tabindex="0" aria-label="निमंत्रण पत्र खोलें">
+        <div class="envelope-back"></div>
+        <div class="envelope-letter">
+          <div class="mini-om">卐</div>
+          <strong>Wedding Invitation</strong>
+          <span class="letter-couple">Amit <em>Weds</em> Shivangi</span>
+          <span class="letter-date">1–5 December 2026</span>
+          <span class="letter-open-hint">✦ Tap to open ✦</span>
+        </div>
+        <div class="envelope-front"></div>
+        <div class="envelope-flap"></div>
+        <div class="envelope-seal">卐</div>
+      </div>
+      <h1 class="opening-title">The Wedding</h1>
+      <p class="opening-subtitle">A heartfelt invitation, made with love</p>
+      <button class="open-invite-btn" id="openInviteButton" type="button">
+        Open Invitation <span aria-hidden="true">✧</span>
+      </button>
     </div>
-    <figure class="poster-hero-frame"><img src="AS.jpeg" alt="Amit Tiwari and Shivangi Tiwari wedding invitation and program details" fetchpriority="high"/></figure>
   </div>
-  <div class="scrollhint">Explore More</div>
-</header>
 
-<main id="main">
+  <a class="skip" href="#main">Skip to main content</a>
 
+  <!-- Top Sticky Navigation -->
+  <nav class="topnav" aria-label="Main Navigation">
+    <div class="navinner">
+      <a class="brand" href="#home" aria-label="मुखपृष्ठ">
+        <span class="brandmark">ॐ</span>
+        <span class="brandtext">Wedding Invitation<small>Amit Weds Shivangi</small></span>
+      </a>
+      <div class="navlinks">
+        <a href="#home">Home</a>
+        <a href="#karyakram">Celebrations</a>
+        <a href="#parivar">The Couple</a>
+        <a href="#cards">Invitation Cards</a>
+        <a href="#wedding-location">Venue Map</a>
+      </div>
+      <div class="navtools">
+        <button class="iconbtn" id="mantraToggle" type="button" aria-pressed="false" aria-label="Play Ganesh Aarti" title="Play Aarti">
+          ♫
+        </button>
+        <button class="iconbtn" type="button" onclick="shareInvite()" aria-label="Share Invitation" title="Share">
+          <svg fill="none" height="18" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="18">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <path d="m8.7 10.7 6.6-4M8.7 13.3l6.6 4"></path>
+          </svg>
+        </button>
+        <button class="iconbtn" type="button" onclick="window.print()" aria-label="Print Page" title="Print">
+          <svg fill="none" height="18" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="18">
+            <path d="M7 8V3h10v5M7 17H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-3"></path>
+            <path d="M7 14h10v7H7zM18 11h.01"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
 
+  <!-- Background Aarti Audio -->
+  <audio id="ganeshMantra" loop preload="none">
+    <source src="./assets/audio/ganesh-arti.mp3" type="audio/mpeg"/>
+  </audio>
 
-<section class="hindi-welcome section" lang="hi" aria-label="Wedding invitation">
-  <div class="hindi-welcome-inner">
-    <h2>सपरिवार सादर आमंत्रण</h2>
-    <p>परमपिता परमेश्वर एवं प्रभु श्रीराम की असीम कृपा से आयोजित शुभ वैवाहिक कार्यक्रमों में आपकी गरिमामयी उपस्थिति सादर प्रार्थनीय है।</p>
+  <!-- Hero Section -->
+  <header class="hero poster-hero" id="home">
+    <div class="poster-hero-glow" aria-hidden="true"></div>
+    <div class="poster-hero-inner">
+      <p class="hero-top-ganesh">॥ श्री गणेशाय नमः ॥</p>
+      <div class="poster-hero-copy">
+        <div class="poster-kicker">✦ A KEEPSAKE OF OUR LOVE ✦</div>
+        <h1>Amit <em>Weds</em> Shivangi</h1>
+        <div class="poster-date"><span aria-hidden="true">✧</span> 1–5 DECEMBER 2026 <span aria-hidden="true">✧</span></div>
+      </div>
+      <figure class="poster-hero-frame">
+        <img src="./assets/images/AS.jpeg" alt="Amit and Shivangi Wedding Invitation" fetchpriority="high"/>
+      </figure>
+    </div>
+    <div class="scrollhint">Explore More ↓</div>
+  </header>
+
+  <main id="main">
+
+    <!-- Shlok Mantra Section -->
+    <section class="shubh-section" aria-label="मांगलिक श्लोक">
+      <div class="shubh-inner reveal">
+        <div class="shubh-ornament">卐 &nbsp; ॐ &nbsp; 卐</div>
+        <h3 class="shubh-mantra">॥ मङ्गलम् भगवान विष्णुः, मङ्गलम् गरुड़ध्वजः ॥</h3>
+        <div class="shubh-divider"><span></span>✦<span></span></div>
+        <p class="shubh-verse">
+          मङ्गलम् पुण्डरीकाक्षः, मङ्गलाय तनो हरिः ॥<br/>
+          सर्वमंगल मांगल्ये, शिवे सर्वार्थ साधिके । शरण्ये त्र्यम्बके गौरी, नारायणी नमोस्तुते ॥
+        </p>
+      </div>
+    </section>
+
+    <!-- Welcome Message -->
+    <section class="hindi-welcome section" aria-label="Wedding invitation welcome">
+      <div class="hindi-welcome-inner reveal">
+        <h2>सपरिवार सादर आमंत्रण</h2>
+        <p>
+          परमपिता परमेश्वर एवं प्रभु श्रीराम की असीम कृपा से आयोजित शुभ वैवाहिक कार्यक्रमों में आपकी गरिमामयी उपस्थिति सादर प्रार्थनीय है।
+        </p>
+      </div>
+    </section>
+
+    <!-- Events & Itinerary -->
+    <section class="section events-section" id="karyakram">
+      <div class="section-inner">
+        <div class="section-heading reveal">
+          <div class="overline">The celebrations</div>
+          <h2>The Wedding Celebrations</h2>
+          <p>Join us for the auspicious ceremonies and wedding celebrations from 1 to 5 December 2026.</p>
+        </div>
+
+        <div class="celebration-poster-wrap reveal">
+          <img class="celebration-poster-art" src="./assets/images/plan-card.jpg" alt="Matri Pujan on 1 Dec, Vivah on 2 Dec, Akhand Ramayan on 4 Dec, Bahubhoj on 5 Dec" loading="lazy">
+        </div>
+
+        <div class="event-grid">
+          <article class="event reveal">
+            <div class="event-top">
+              <span class="event-number">1</span>
+              <span class="event-day">Tuesday</span>
+            </div>
+            <h3>मातृ पूजन एवं जनेऊ संस्कार</h3>
+            <div class="event-date">
+              <svg fill="none" height="17" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="17"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>
+              1 December 2026
+            </div>
+            <p>मांगलिक मातृ पूजन एवं जनेऊ संस्कार (वर निवास स्थान)।</p>
+          </article>
+
+          <article class="event reveal">
+            <div class="event-top">
+              <span class="event-number">2</span>
+              <span class="event-day">Wednesday</span>
+            </div>
+            <h3>शुभ विवाह / Shubh Vivah</h3>
+            <div class="event-date">
+              <svg fill="none" height="17" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="17"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>
+              2 December 2026
+            </div>
+            <p>बारात हमारे निवास स्थान से सायं 4:00 बजे वधू के निवास स्थान (महमूदपुर जंगल) के लिए प्रस्थान करेगी।</p>
+          </article>
+
+          <article class="event reveal">
+            <div class="event-top">
+              <span class="event-number">3</span>
+              <span class="event-day">Thursday</span>
+            </div>
+            <h3>बारात वापसी</h3>
+            <div class="event-date">
+              <svg fill="none" height="17" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="17"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>
+              3 December 2026
+            </div>
+            <p>ससम्मान बारात की वापसी निज निवास स्थान नोखेपुर।</p>
+          </article>
+
+          <article class="event reveal">
+            <div class="event-top">
+              <span class="event-number">4</span>
+              <span class="event-day">Friday</span>
+            </div>
+            <h3>श्री अखण्ड रामायण पाठ</h3>
+            <div class="event-date">
+              <svg fill="none" height="17" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="17"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>
+              4 December 2026
+            </div>
+            <p>प्रभु श्री रामचरितमानस अखण्ड पाठ का शुभारंभ (वर निवास स्थान)।</p>
+          </article>
+
+          <article class="event reveal">
+            <div class="event-top">
+              <span class="event-number">5</span>
+              <span class="event-day">Saturday</span>
+            </div>
+            <h3>बहूभोज एवं प्रीतिभोज</h3>
+            <div class="event-date">
+              <svg fill="none" height="17" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="17"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>
+              5 December 2026 (सायं 6:00 बजे)
+            </div>
+            <p>वधू आगमन एवं स्नेह प्रीतिभोज (स्थल: ग्राम नोखेपुर, पोस्ट बासूपुर, सुल्तानपुर)।</p>
+          </article>
+        </div>
+
+        <div class="invite-note reveal">
+          On this auspicious occasion, <strong>your gracious presence and blessings are warmly requested.</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- Couple & Families Section -->
+    <section class="section family-section" id="parivar">
+      <div class="section-inner">
+        <div class="section-heading reveal">
+          <div class="overline">With blessings</div>
+          <h2>Meet the Couple</h2>
+          <p>With love and blessings from both families</p>
+        </div>
+
+        <div class="family-card reveal">
+          <div class="family-names">
+            <!-- Groom -->
+            <div class="person">
+              <span class="person-role">वर / Groom</span>
+              <div class="person-emblem" aria-hidden="true">✦</div>
+              <h3>चि० अमित तिवारी</h3>
+              <p>
+                <strong>सुपौत्र:</strong> स्व० सरस्वती देवी एवं स्व० राम अजोर तिवारी<br/>
+                <strong>सुपुत्र:</strong> श्रीमती माधुरी तिवारी एवं श्री अमरनाथ तिवारी<br/>
+                ग्राम – नोखेपुर, पो० – बासूपुर, जि० – सुल्तानपुर
+              </p>
+            </div>
+
+            <div class="ornament" aria-hidden="true">❦</div>
+
+            <!-- Bride -->
+            <div class="person">
+              <span class="person-role">वधू / Bride</span>
+              <div class="person-emblem" aria-hidden="true">❀</div>
+              <h3>आयु० शिवांगी तिवारी</h3>
+              <p>
+                <strong>सुपौत्री:</strong> शोभावती तिवारी एवं स्व० श्री राम आसरे तिवारी<br/>
+                <strong>सुपुत्री:</strong> श्रीमती कमलेश तिवारी एवं श्री अश्वनी कुमार तिवारी<br/>
+                ग्राम – महमूदपुर जंगल, पो० – पारस पट्टी पान्डेबाबा, जि० – सुल्तानपुर
+              </p>
+            </div>
+          </div>
+
+          <div class="family-separator"></div>
+
+          <!-- Extended Family Section -->
+          <div class="bal-aagrah">
+            <strong>बाल आग्रह:</strong><br/>
+            "नन्हे नन्हे पाँव हैं कैसे आऊँ तुम्हें बुलाने को, मेरे मामा की शादी में भूल न जाना आने को।"<br/>
+            <em>— आर्किशी, सृष्टि, अक्षत, शिवांश</em>
+          </div>
+
+          <div class="family-members-grid">
+            <div>
+              <strong>दर्शनाभिलाषी:</strong><br/>
+              श्री प्रशान्त तिवारी, श्री डॉ० प्रवीण तिवारी, श्री प्रतीक तिवारी, रिसभ, युग
+            </div>
+            <div>
+              <strong>स्वागताकांक्षी:</strong><br/>
+              श्री राम प्रसाद तिवारी, श्री राम सकल तिवारी
+            </div>
+            <div>
+              <strong>विनीतः</strong><br/>
+              श्री अमरनाथ तिवारी<br/>
+              मोबाईल: <a href="tel:9450661095">9450661095</a>, <a href="tel:9454379145">9454379145</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Invitation Cards Downloads Section -->
+    <section class="section cards-section" id="cards">
+      <div class="section-inner">
+        <div class="section-heading reveal">
+          <div class="overline">The invitation suite</div>
+          <h2>Your Invitation Cards</h2>
+          <p>Tap a card to view in high resolution, or download it directly to keep as a keepsake.</p>
+        </div>
+
+        <div class="card-gallery">
+          <!-- Card 1: Shubh Vivah -->
+          <article class="card-tile reveal">
+            <div class="card-tile-head">
+              <h3>शुभ विवाह निमंत्रण पत्र</h3>
+              <span class="small-label">Amit &amp; Shivangi</span>
+            </div>
+            <button class="card-image-button" type="button" onclick="openCard('gold')" aria-label="विवाह कार्ड बड़ा देखें">
+              <img id="goldCard" src="./assets/images/wedding-card.png" alt="Shubh Vivah HD Invitation Card" loading="lazy"/>
+            </button>
+            <div class="tile-actions">
+              <button class="btn btn-gold" type="button" onclick="downloadCard('gold')">
+                📥 Download Card (HD)
+              </button>
+              <button class="btn btn-outline" type="button" onclick="openCard('gold')">
+                View Larger ↗
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 2: Preetibhoj & Bahubhoj -->
+          <article class="card-tile reveal">
+            <div class="card-tile-head">
+              <h3>बहूभोज एवं प्रीतिभोज पत्रिका</h3>
+              <span class="small-label">Akhand Ramayan &amp; Preetibhoj</span>
+            </div>
+            <button class="card-image-button" type="button" onclick="openCard('celebrations')" aria-label="बहूभोज कार्ड बड़ा देखें">
+              <img id="celebrationCard" src="./assets/images/preetbhoj-card.png" alt="Preetibhoj & Bahubhoj Card" loading="lazy"/>
+            </button>
+            <div class="tile-actions">
+              <button class="btn btn-gold" type="button" onclick="downloadCard('celebrations')">
+                📥 Download Card (HD)
+              </button>
+              <button class="btn btn-outline" type="button" onclick="openCard('celebrations')">
+                View Larger ↗
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Venue Map Section -->
+    <section class="venue-map-section" id="wedding-location" aria-labelledby="venue-map-title">
+      <div class="venue-map-inner reveal">
+        <div class="venue-map-ornament">✦ 卐 ✦</div>
+        <p class="venue-map-kicker">FIND YOUR WAY TO THE CELEBRATION</p>
+        <h2 id="venue-map-title">Family Event Venue</h2>
+        <p>
+          The baraat departs from the groom's residence. The Ramcharitmanas Path and Preetibhoj will also be held here:<br/>
+          <strong>Village Nokhepur, Post Basupur, District Sultanpur, Uttar Pradesh.</strong>
+        </p>
+        <a class="venue-map-button" 
+           href="https://www.google.com/maps/search/?api=1&query=Village+Nokhepur+Post+Basupur+District+Sultanpur+Uttar+Pradesh" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           aria-label="Find Village Nokhepur on Google Maps">
+          ⌖ &nbsp; Find Venue on Google Maps ↗
+        </a>
+        <div class="venue-map-ornament">✦ 卐 ✦</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-mark">卐</div>
+    <strong>You Are Warmly Invited</strong>
+    <p>Wedding celebrations of Amit <span style="color:#d9b46c;">Weds</span> Shivangi</p>
+    <p class="fineprint">॥ सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः ॥</p>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Image Lightbox Modal -->
+  <div class="modal" id="cardModal" role="dialog" aria-modal="true" aria-label="कार्ड का बड़ा दृश्य" onclick="modalBackdrop(event)">
+    <div class="modal-inner">
+      <button class="modal-close" type="button" onclick="closeCard()" aria-label="बंद करें">×</button>
+      <img id="modalImage" src="" alt="बड़ा निमंत्रण कार्ड"/>
+      <div class="modal-caption" id="modalCaption"></div>
+    </div>
   </div>
-</section>
-<section class="section events-section" id="karyakram">
-<div class="section-inner">
-<div class="section-heading reveal"><div class="overline">The celebrations</div><h2>The Wedding Celebrations</h2><p>Join us for the auspicious ceremonies and wedding celebrations from 1 to 5 December 2026.</p></div>
-<div class="celebration-poster-wrap reveal"><img class="celebration-poster-art" src="f24f4852-8c38-4c51-983a-9f71c33fcf46.jpg" alt="Matri Pujan and Janeu Sanskar on 1 December, Wedding on 2 December, Baraat Wapsi on 3 December, Akhand Ramayan on 4 December, and Preetibhoj with Vadhu Aagman on 5 December 2026" loading="lazy"></div>
-<div class="event-grid">
-<article class="event reveal"><div class="event-top"><span class="event-number">1</span><span class="event-day">Tuesday</span></div><h3>Matri Pujan &amp; Janeu Sanskar</h3><div class="event-date"><svg fill="none" height="17" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24" width="17"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>1 December 2026</div><p>Matri Pujan and the Janeu Sanskar ceremony.</p></article>
-<article class="event reveal"><div class="event-top"><span class="event-number">2</span><span class="event-day">Wednesday</span></div><h3>Shubh Vivah / Wedding</h3><div class="event-date"><svg fill="none" height="17" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24" width="17"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>2 December 2026</div><p>The baraat departs at 4:00 PM from the groom's residence in Village Nokhepur, Post Basupur.</p></article>
-<article class="event reveal"><div class="event-top"><span class="event-number">3</span><span class="event-day">Thursday</span></div><h3>Baraat Wapsi / Return</h3><div class="event-date"><svg fill="none" height="17" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24" width="17"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>3 December 2026</div><p>Return of the wedding party.</p></article>
-<article class="event reveal"><div class="event-top"><span class="event-number">4</span><span class="event-day">Friday</span></div><h3>Akhand Ramayan</h3><div class="event-date"><svg fill="none" height="17" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24" width="17"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>4 December 2026</div><p>At the groom's residence, Village Nokhepur.</p></article>
-<article class="event reveal"><div class="event-top"><span class="event-number">5</span><span class="event-day">Saturday</span></div><h3>Preetibhoj / Vadhu Aagman</h3><div class="event-date"><svg fill="none" height="17" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24" width="17"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>5 December 2026</div><p>Join us for the wedding feast and the bride's arrival at 6:00 PM in Village Nokhepur.</p></article>
-</div>
-<div class="invite-note reveal">On this auspicious occasion, <strong>your gracious presence and blessings are warmly requested.</strong></div>
-</div>
-</section>
 
-<section class="section family-section" id="parivar">
-<div class="section-inner">
-<div class="section-heading reveal"><div class="overline">With blessings</div><h2>Meet the Couple</h2><p>With love and blessings from both families</p></div>
-<div class="family-card reveal">
-<div class="family-names">
-<div class="person person-vivek"><span class="person-role">THE GROOM</span><div class="person-emblem" aria-hidden="true">✦</div><h3>Amit Tiwari</h3><p>Son of Smt. Madhuri Tiwari and Shri Amarnath Tiwari<br/>Grandson of Late Smt. Saraswati Devi and Late Shri Ram Ajor Tiwari<br/>Village: Nokhepur, Post: Basupur<br/>District: Sultanpur (U.P.)</p></div>
-<div aria-hidden="true" class="ornament">❋</div>
-<div class="person person-prachi"><span class="person-role">THE BRIDE</span><div class="person-emblem" aria-hidden="true">❀</div><h3>Shivangi Tiwari</h3><p>Daughter of Smt. Kamlesh Tiwari and Shri Ashwani Kumar Tiwari<br/>Granddaughter of Smt. Shobhavati Tiwari and Late Shri Ram Asare Tiwari<br/>Village: Mahmoodpur Jungle, Post: Paraspatti, Pandeybaba<br/>District: Sultanpur (U.P.)</p></div>
-</div>
-<div class="family-separator"></div>
-<p class="request-text">You are cordially invited to celebrate the wedding of Amit and Shivangi. Your presence and blessings will make the occasion joyful.<br/><br/><strong>Best wishes from:</strong> Shri Prashant Tiwari, Dr. Praveen Tiwari, Shri Prateek Tiwari, Rishabh, and Yug.<br/><strong>Welcome from:</strong> Shri Ram Prasad Tiwari and Shri Ram Sakal Tiwari.<br/><br/><strong>A little invitation from Aakankshi, Srishti, Akshat, and Shivansh:</strong> “Please do come to our dear uncle's wedding!”<br/><br/><strong>Invited by:</strong> Smt. Madhuri Tiwari and Shri Amarnath Tiwari<br/><strong>Contact:</strong> <a href="tel:9450661095">9450661095</a> · <a href="tel:9454379145">9454379145</a></p>
-</div>
-</div>
-</section>
-<section class="section cards-section" id="cards">
-<div class="section-inner">
-<div class="section-heading reveal"><div class="overline">The invitation suite</div><h2>Your Invitation Cards</h2><p>Tap a card to view it in detail, or download it to keep as a keepsake.</p></div>
-<div class="card-gallery">
-<article class="card-tile reveal"><div class="card-tile-head"><h3>Wedding Invitation</h3><span class="small-label">Amit &amp; Shivangi</span></div><button aria-label="Family and invitation details card" class="card-image-button" onclick="openCard('gold')" type="button"><img alt="Wedding invitation family and contact details" id="goldCard" loading="lazy" src="WhatsAppImage.png"/></button><div class="tile-actions"><button class="btn btn-outline" onclick="downloadCard('gold')" type="button">Download Card ↓</button><button class="btn btn-outline" onclick="openCard('gold')" type="button">View Larger ↗</button></div></article>
-<article class="card-tile reveal"><div class="card-tile-head"><h3>Celebration Highlights</h3><span class="small-label">Preetibhoj</span></div><button aria-label="Wedding celebration highlights card" class="card-image-button" onclick="openCard('celebrations')" type="button"><img alt="Matri Pujan, wedding, and Preetibhoj celebration illustrations" id="celebrationCard" loading="lazy" src="WhatsAppImage1.png"/></button><div class="tile-actions"><button class="btn btn-outline" onclick="downloadCard('celebrations')" type="button">Download Card ↓</button><button class="btn btn-outline" onclick="openCard('celebrations')" type="button">View Larger ↗</button></div></article>
-</div>
-</div>
-</section>
-
-<section class="venue-map-section" id="wedding-location" aria-labelledby="venue-map-title"><div class="venue-map-inner"><div class="venue-map-ornament">✦ ❋ ✦</div><p class="venue-map-kicker">FIND YOUR WAY TO THE CELEBRATION</p><h2 id="venue-map-title">Family Event Venue</h2><p>The baraat departs from the groom's residence. The Ramcharitmanas Path and Preetibhoj will also be held here: Village Nokhepur, Post Basupur, District Sultanpur, Uttar Pradesh.</p><a class="venue-map-button" href="https://www.google.com/maps/search/?api=1&amp;query=Village%20Nokhepur%2C%20Post%20Basupur%2C%20District%20Sultanpur%2C%20Uttar%20Pradesh" target="_blank" rel="noopener noreferrer" aria-label="Find Village Nokhepur, Post Basupur, Sultanpur on Google Maps">⌖ &nbsp; Find Venue on Google Maps ↗</a><div class="venue-map-ornament">✦ ❋ ✦</div></div></section>
-</main>
-<footer class="footer"><div class="footer-mark">❋</div><strong>You Are Warmly Invited</strong><p>Wedding celebrations of Amit <span class="amp">Weds</span> Shivangi</p><p class="fineprint">May all be auspicious</p></footer>
-<div aria-live="polite" class="toast" id="toast" role="status"></div>
-<div aria-label="निमंत्रण कार्ड का बड़ा दृश्य" aria-modal="true" class="modal" id="cardModal" onclick="modalBackdrop(event)" role="dialog"><div class="modal-inner"><button aria-label="बंद करें" class="modal-close" onclick="closeCard()">×</button><img alt="बड़ा निमंत्रण कार्ड" id="modalImage" src=""/><div class="modal-caption" id="modalCaption"></div></div></div>
-<script>
-
-// Show the wedding invitation card first in the hero and provide a cinematic envelope opening.
-const openingScreen=document.getElementById('openingScreen');
-const openInviteButton=document.getElementById('openInviteButton');
-const heroCardImage=document.querySelector('.poster-hero-frame img');
-if(heroCardImage && document.getElementById('pinkCard')) heroCardImage.src=document.getElementById('pinkCard').src;
-function openInvitationExperience(){
- if(openingScreen.classList.contains('opening') || openingScreen.classList.contains('is-open')) return;
- toggleMantra();
- openingScreen.classList.add('opening');
- openInviteButton.disabled=true;
- openInviteButton.textContent='निमंत्रण खुल रहा है…';
- // Let the flap open first, then allow the invitation card to rise before fading away.
- const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- const fadeDelay=reducedMotion?80:1450;
- const hideDelay=reducedMotion?180:2250;
- window.setTimeout(()=>{openingScreen.classList.add('is-open');document.body.classList.remove('invite-locked');document.getElementById('home')?.setAttribute('tabindex','-1');},fadeDelay);
- window.setTimeout(()=>{openingScreen.style.display='none';document.querySelector('.topnav a')?.focus({preventScroll:true});},hideDelay);
-}
-openInviteButton.addEventListener('click',openInvitationExperience);
-const envelopeOpenCard=document.getElementById('envelopeOpenCard');
-envelopeOpenCard.addEventListener('click',openInvitationExperience);
-envelopeOpenCard.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();openInvitationExperience();}});
-
-const mantraAudio=document.getElementById('ganeshMantra');
-const mantraToggle=document.getElementById('mantraToggle');
-function updateMantraToggle(isPlaying){
- const label=isPlaying?'Pause Ganesh mantra':'Play Ganesh mantra';
- mantraToggle.setAttribute('aria-pressed',String(isPlaying));
- mantraToggle.setAttribute('aria-label',label);
- mantraToggle.title=label;
-}
-mantraAudio.addEventListener('play',()=>updateMantraToggle(true));
-mantraAudio.addEventListener('pause',()=>updateMantraToggle(false));
-async function toggleMantra(){
- if(!mantraAudio.paused){mantraAudio.pause();return}
- try{await mantraAudio.play()}
- catch(error){updateMantraToggle(false);showToast('Unable to play the Ganesh mantra. Check that the audio file is available and try again.')}
-}
-
-const cards={gold:{src:document.getElementById('goldCard').src,name:'Family-and-Invitation-Details.jpg',caption:'Family and invitation details for Amit Tiwari and Shivangi Tiwari'},celebrations:{src:document.getElementById('celebrationCard').src,name:'Wedding-Celebration-Highlights.jpg',caption:'Matri Pujan, Wedding, and Preetibhoj celebration highlights'}};
-let toastTimer;
-function showToast(message){const el=document.getElementById('toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3000)}
-async function shareInvite(){
-  const text='Shree Ganeshaya Namah\nYou are cordially invited to the wedding of Amit Tiwari and Shivangi Tiwari.\n\nMatri Pujan and Janeu Sanskar - Tuesday, 1 December 2026\nShubh Vivah / Wedding - Wednesday, 2 December 2026 (baraat departs at 4:00 PM from Village Nokhepur, Post Basupur)\nBaraat Wapsi / Return - Thursday, 3 December 2026\nAkhand Ramayan - Friday, 4 December 2026 (Residence, Village Nokhepur)\nPreetibhoj / Vadhu Aagman - Saturday, 5 December 2026 at 6:00 PM (Village Nokhepur)\n\nBest wishes from Shri Prashant Tiwari, Dr. Praveen Tiwari, Shri Prateek Tiwari, Rishabh, and Yug.\nWelcome from Shri Ram Prasad Tiwari and Shri Ram Sakal Tiwari.\nInvited by Smt. Madhuri Tiwari and Shri Amarnath Tiwari.\nContact: 9450661095, 9454379145\n\nYour gracious presence and blessings are warmly requested.';
- if(navigator.share){try{await navigator.share({title:'Amit Tiwari and Shivangi Tiwari - Wedding Invitation',text})}catch(e){if(e.name!=='AbortError')copyInvite(text)}}
- else copyInvite(text);
-}
-async function copyInvite(text){try{await navigator.clipboard.writeText(text);showToast('निमंत्रण संदेश कॉपी हो गया है।')}catch(e){showToast('साझा करने के लिए ब्राउज़र मेनू का उपयोग करें।')}}
-function downloadCard(which){const card=cards[which];const a=document.createElement('a');a.href=card.src;a.download=card.name;document.body.appendChild(a);a.click();a.remove();showToast('कार्ड डाउनलोड शुरू हो गया है।')}
-function openCard(which){const m=document.getElementById('cardModal');document.getElementById('modalImage').src=cards[which].src;document.getElementById('modalCaption').textContent=cards[which].caption;m.classList.add('open');document.body.style.overflow='hidden';document.querySelector('.modal-close').focus()}
-function closeCard(){document.getElementById('cardModal').classList.remove('open');document.body.style.overflow=''}
-function modalBackdrop(event){if(event.target===document.getElementById('cardModal'))closeCard()}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCard()});
-const io=('IntersectionObserver'in window)?new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');io.unobserve(entry.target)}}),{threshold:.12}):null;
-document.querySelectorAll('.reveal').forEach(el=>{if(io)io.observe(el);else el.classList.add('visible')});
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  document.querySelectorAll('body > *').forEach(function(node){
-    if(node.tagName === 'STYLE' || node.tagName === 'SCRIPT' || node.id === 'openingScreen' || node.tagName === 'NAV') return;
-    if(node.childElementCount === 0 && /Hindi-first invitation hero refinements|hindi-invitation-copy\s*\{max-width:600px/.test(node.textContent || '')) node.remove();
-  });
-});
-</script>
+  <!-- External Script -->
+  <script src="script.js"></script>
 </body>
 </html>
